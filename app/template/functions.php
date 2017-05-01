@@ -6,10 +6,11 @@ require get_template_directory() . '/inc/template-utils.php';
 add_theme_support( 'title-tag' );
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'custom-logo', array(
-    'height'      => 248,
+    'height'      => 64,
     'width'       => 248,
-    'flex-height' => true,
-) );
+    'flex-height' => false,
+));
+add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 //add_theme_support( 'customize-selective-refresh-widgets' );
 
 // This theme uses wp_nav_menu() in two locations.
@@ -32,8 +33,8 @@ function theme_slug_widgets_init() {
 
 // Add scripts and stylesheets
 function startwordpress_scripts() {
-	wp_enqueue_style ('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', array(), '3.3.6' );
-	wp_enqueue_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', array( 'jquery' ), '3.3.6', true );
+	//wp_enqueue_style ('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', array(), '3.3.6' );
+	//wp_enqueue_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', array( 'jquery' ), '3.3.6', true );
 
     wp_enqueue_style ('blog', get_template_directory_uri() . '/css/main.css' );	
 }

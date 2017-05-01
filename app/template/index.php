@@ -1,8 +1,8 @@
 <?php get_header(); ?>
-
+<?php php_file(); ?>
 	<div class="row">
 		<div class="col-sm-8">
-			index.php			
+			
 			<h1><?php echo apply_filters( 'the_title', get_the_title( get_option( 'page_for_posts' ) ) ); ?></h1>
 			<?php
 			echo apply_filters( 'the_content', get_post_field( 'post_content', get_option( 'page_for_posts' ) ) );

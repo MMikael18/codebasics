@@ -1,5 +1,5 @@
+<?php php_file(); ?>
 <div class="blog-post">
-    content.php
 	<h2 class="blog-post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
     <?php
 	printf( _nx( 'One Comment', '%1$s Comments', get_comments_number(), 'comments title', 'textdomain' ), number_format_i18n(get_comments_number()) ); ?>
