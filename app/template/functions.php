@@ -1,8 +1,15 @@
 <?php
 /* --------------------------- Ing --------------------------- */
+
+require get_template_directory() . '/inc/devtools.php';
 require get_template_directory() . '/inc/template-utils.php';
 
+
+
 // --------------------------- Theme supports ---------------------------
+
+
+
 add_theme_support( 'title-tag' );
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'custom-logo', array(
@@ -13,33 +20,107 @@ add_theme_support( 'custom-logo', array(
 add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 //add_theme_support( 'customize-selective-refresh-widgets' );
 
-// This theme uses wp_nav_menu() in two locations.
+
+
+// ---------------------------  Menus ---------------------------
+
+
+
 register_nav_menus( array(
     'top'    => __( 'Top', 'main navigation' ),
 ));
 
-add_action( 'widgets_init', 'theme_slug_widgets_init' );
-function theme_slug_widgets_init() {
+
+
+// ---------------------------  Sidebars ---------------------------
+
+
+
+function theme_cb_sidebars() {
     register_sidebar( array(
         'name' => __( 'Post Sidebar', 'sidepar-post' ),
         'id' => 'sidepar-post',
         'description' => __( 'Widgets in this area will be shown on all posts.', 'sidepar-post' ),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
 	'after_widget'  => '</div>',
-	'before_title'  => '<h2 class="widgettitle">',
-	'after_title'   => '</h2>',
+	'before_title'  => '<h4 class="widgettitle">',
+	'after_title'   => '</h4>',
     ));
 }
+add_action( 'widgets_init', 'theme_cb_sidebars' );
 
-// Add scripts and stylesheets
+
+
+// --------------------------- Shortcodes ---------------------------
+
+
+
+function post_listes( $atts ){
+
+    $a = shortcode_atts( array(
+        'foo' => 'something',
+        'bar' => 'something else',
+    ), $atts );
+
+    /* main post's ID, the below line must be inside the main loop */
+    $exclude = get_the_ID();
+
+    /* alternatively to the above, this would work outside the main loop */
+    global $wp_query;
+    $exclude = $wp_query->post->ID;
+
+    /* secondary query using WP_Query */
+    $args = array(
+        //'category_name' => 'MyCatName', // note: this is the slug, not name!
+        'posts_per_page' => -1 // note: showposts is deprecated!
+    );
+    $your_query = new WP_Query( $args );
+
+    /* loop */
+	ob_start();
+	?>
+    <ul>
+    <?php
+    while( $your_query->have_posts() ) : $your_query->the_post();
+        if( $exclude != get_the_ID() ) {
+            echo '<li><a href="' . get_permalink() . '">' .
+                get_the_title() . '</a></li>';
+        }
+    endwhile;
+    ?>
+    </ul>
+    <?php
+	return ob_get_clean();
+    //return "foo = {$a['foo']}";
+}
+add_shortcode( 'posts', 'post_listes' );
+
+
+
+// --------------------------- Scripts and stylesheets ---------------------------
+
+
+
 function startwordpress_scripts() {
-	//wp_enqueue_style ('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', array(), '3.3.6' );
 	//wp_enqueue_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', array( 'jquery' ), '3.3.6', true );
-
+    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/scripts.js', '', '3.3.6', true );
     wp_enqueue_style ('blog', get_template_directory_uri() . '/css/main.css' );	
 }
 
 add_action( 'wp_enqueue_scripts', 'startwordpress_scripts' );
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Add Google Fonts
 // function startwordpress_google_fonts() {

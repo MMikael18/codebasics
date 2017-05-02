@@ -29,13 +29,42 @@ $grid-breakpoints: (
 );
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
+
+
+// ------------------- bootstrap css overdrive -------------------
+
+.badge.active{
+  opacity: 0.5;
+}
+
+.badge{
+  a{
+    color: white;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+}
+
+
+
+// ------------------- html tags -------------------
+
+
+
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   font-weight: normal;
   color: #333;
 }
 
-/* -- Site bone -- */
+
+
+
+/* ------------------- Site bone ------------------- */
+
+
+
 html{height: 100%;}
 body{
     display: flex;
@@ -113,6 +142,15 @@ article.container{
 
 }
 
+.blog-header{
+  padding: 15px 0;
+  .blog-title{
+    display: inline-block;
+  }
+  .blog-description{
+    display: inline-block;
+  }
+}
 
 
 /* ------------------- Blog posts ------------------- */

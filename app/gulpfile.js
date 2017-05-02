@@ -56,8 +56,8 @@ var css = {
   processors: [
     require('postcss-assets')({
       loadPaths: ['images/'],
-      basePath: dir.build,
-      baseUrl: '/wp-content/themes/emedia-start/'
+      basePath: dir.build
+      //baseUrl: '/wp-content/themes/emedia-start/'
     }),
     require('autoprefixer')({
       browsers: ['last 2 versions', '> 2%']

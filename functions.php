@@ -43,8 +43,8 @@ function theme_cb_sidebars() {
         'description' => __( 'Widgets in this area will be shown on all posts.', 'sidepar-post' ),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
 	'after_widget'  => '</div>',
-	'before_title'  => '<h2 class="widgettitle">',
-	'after_title'   => '</h2>',
+	'before_title'  => '<h4 class="widgettitle">',
+	'after_title'   => '</h4>',
     ));
 }
 add_action( 'widgets_init', 'theme_cb_sidebars' );
@@ -103,6 +103,7 @@ add_shortcode( 'posts', 'post_listes' );
 
 function startwordpress_scripts() {
 	//wp_enqueue_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', array( 'jquery' ), '3.3.6', true );
+    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/scripts.js', '', '3.3.6', true );
     wp_enqueue_style ('blog', get_template_directory_uri() . '/css/main.css' );	
 }
 
