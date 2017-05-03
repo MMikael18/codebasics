@@ -72,6 +72,7 @@ function post_listes( $atts ){
     /* secondary query using WP_Query */
     $args = array(
         //'category_name' => 'MyCatName', // note: this is the slug, not name!
+        'category_name' => 'css+html',
         'posts_per_page' => -1 // note: showposts is deprecated!
     );
     $your_query = new WP_Query( $args );
@@ -80,14 +81,14 @@ function post_listes( $atts ){
 	ob_start();
 	?>
     <ul>
-    <?php
-    while( $your_query->have_posts() ) : $your_query->the_post();
-        if( $exclude != get_the_ID() ) {
-            echo '<li><a href="' . get_permalink() . '">' .
-                get_the_title() . '</a></li>';
-        }
-    endwhile;
-    ?>
+        <?php
+            while( $your_query->have_posts() ) : $your_query->the_post();
+                if( $exclude != get_the_ID() ) {
+                    echo '<li><a href="' . get_permalink() . '">' .
+                        get_the_title() . '</a></li>';
+                }
+            endwhile;
+        ?>
     </ul>
     <?php
 	return ob_get_clean();

@@ -14,6 +14,10 @@ class cbTemp {
 		}
 	}
 
+
+	/* --- Get Posts Thing --- */
+
+
 	public static function categories_links() {
 
 		$categories = get_categories( array(
@@ -45,7 +49,10 @@ class cbTemp {
 			echo trim( $output, $separator );
 		}
 	}
+	public static function posts_in_categories(){
 
+	}
+	/* --- End --- */
 }
 //$cpt = new cbTemp();
 
