@@ -46,6 +46,10 @@ $grid-breakpoints: (
   }
 }
 
+.badge-cat{
+  font-size: 1.25em;
+}
+
 
 
 // ------------------- html tags -------------------
@@ -70,6 +74,7 @@ body{
     display: flex;
     flex-direction: column;
     height: 100%;margin: 0;
+    font-family: 'Quicksand', sans-serif!important;
 }
 header#site-header, footer#site-footer{
   flex: 0 0 auto;
@@ -155,16 +160,33 @@ article.container{
 
 /* ------------------- Blog posts ------------------- */
 
+$post-margin: 15px;
 
+.post-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: $post-margin;
+}
 
-.blog-post {
+.post {
+  outline: 1px solid #ccc;
+  width: calc(100% / 4 - 15px);
+  padding: 10px 20px;
+  margin-right: $post-margin;
+  margin-bottom: $post-margin;
 
-  .blog-post-title {
+  .post-title {
     margin-bottom: 5px;
-    font-size: 40px;
+
+    a{
+      color: #444;
+      &:hover{
+        text-decoration: none;
+      }
+    }
   }
 
-  .blog-post-meta {
+  .post-meta {
     margin-bottom: 20px;
     color: #999;
   }
