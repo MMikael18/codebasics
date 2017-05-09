@@ -57,7 +57,6 @@ var css = {
     require('postcss-assets')({
       loadPaths: ['images/'],
       basePath: dir.build
-      //baseUrl: '/wp-content/themes/emedia-start/'
     }),
     require('autoprefixer')({
       browsers: ['last 2 versions', '> 2%']
@@ -68,8 +67,8 @@ var css = {
 };
 gulp.task('css', ['images'], () => {
   return gulp.src(css.src)
-    .pipe(sass(css.sassOpts))
-    .pipe(postcss(css.processors))
+    .pipe(sass(css.sassOpts))    
+    .pipe(postcss(css.processors))    
     .pipe(gulp.dest(css.build));
 });
 

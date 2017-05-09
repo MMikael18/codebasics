@@ -1,0 +1,44 @@
+.post-lister {
+    display: flex;
+    flex-wrap: wrap;
+
+    .pl-li {
+        position: relative;
+        border: solid 1px #444;
+        width: 25%;
+
+        img{
+            width: 100%;
+            height: auto;            
+        }
+        
+        .pl-cats{
+            background-color: #444;            
+            padding: 2px 5px;
+            white-space: nowrap;
+            display: inline-block;
+            a{
+                color: white;
+
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .pl-cont{
+            display: block;
+            padding: 10px;
+
+            h3{
+                a{
+                    color: #444;
+                }
+            }
+            .pl-tags{
+                display: block;
+                text-align: right;
+            }
+        }
+    }
+}

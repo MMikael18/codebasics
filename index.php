@@ -10,46 +10,20 @@
 	</div>
 	<div class="row">
 		<div class="col-sm-12">						
-			<?php		
-			/* Select multiple categories */
-			$qString = ($_GET["cats"]) ? $_GET["cats"] : "";
-			$qArray = explode("+", $qString);
-
-			$categories = get_categories( array(
-				'orderby'    => 'name',
-				'show_count' => true
-			));
-			
-			$output = '';
-			if ( ! empty( $categories ) ) {
-				foreach( $categories as $category ) {
-
-					$class = "";
-					$newQstring = strlen($qString) ? $qString . "+" . $category->slug : $category->slug ;
-
-					if(in_array($category->slug, $qArray)){
-						$class = "active";
-						$newQstring = "";
-						foreach($qArray as $qa){
-							if($qa != $category->slug){
-								$newQstring .= strlen($newQstring) > 0 ? "+".$qa : $qa ;
-							}
-						}												
-					}
-
-					$newUrl = esc_url(add_query_arg( 'cats', urlencode($newQstring) ));
-					$output .=  '<span class="'.$class.' badge-cat badge badge-default"><a href="' . $newUrl . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a></span> ';
-				}
-				echo trim( $output, $separator );
-			}
- ?>
+<div class="categories">
+	<?php $nowcat = cbTemp::all_categories_links(); ?>
+</div>
+<div class="tags">
+	<?php $tag = cbTemp::tages_multiselect($nowcat); ?>
+</div>
  			<div class="post-container">
  <?php
-			/* secondary query using WP_Query */			
+			/* secondary query using WP_Query */
 			$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;			
 			$args = array(
 				'post_type' => 'post',
-				'category_name' => $qString,
+				'category_name' => $nowcat,
+				'tag' => $tag,
 				'posts_per_page' => 16,
 				'paged' => $paged
 			);

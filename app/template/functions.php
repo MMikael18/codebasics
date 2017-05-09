@@ -82,7 +82,7 @@ add_action( 'widgets_init', 'theme_cb_sidebars' );
 
 
 
-function post_listes( $atts ){
+function post_lister( $atts ){
 
     $a = shortcode_atts( array(
         'foo' => 'something',
@@ -98,47 +98,96 @@ function post_listes( $atts ){
 
     /* secondary query using WP_Query */
     $args = array(
-        //'category_name' => 'MyCatName', // note: this is the slug, not name!
-        'category_name' => 'css+html',
+        'category_name' => '',
         'posts_per_page' => -1 // note: showposts is deprecated!
     );
     $your_query = new WP_Query( $args );
 
     /* loop */
-	ob_start();
-	?>
-    <ul>
-        <?php
-            while( $your_query->have_posts() ) : $your_query->the_post();
-                if( $exclude != get_the_ID() ) {
-                    echo '<li><a href="' . get_permalink() . '">' .
-                        get_the_title() . '</a></li>';
-                }
-            endwhile;
-        ?>
-    </ul>
-    <?php
+	ob_start();    
+    echo "<div class='post-lister'>";
+    while( $your_query->have_posts() ) : $your_query->the_post();
+        if( $exclude != get_the_ID() ) {
+            
+            $url = get_permalink();
+            $title = get_the_title();
+            //$content = get_the_excerpt();
+            $tags = cbTemp::get_tags_links();
+            $cath = cbTemp::get_categories_links();
+
+            $thumb = get_the_post_thumbnail(get_the_ID(), 'medium' );
+            
+            echo "<div class='pl-li'>
+                    $thumb
+                    <div class='pl-cats'>$cath</div>
+                    <div class='pl-cont'>
+                        <h3><a href=$url>$title</a></h3>
+                        <span class='pl-tags'>$tags</span>
+                    </div>
+                </div>";
+            
+        }
+    endwhile;
+    echo "</div>";
+
 	return ob_get_clean();
     //return "foo = {$a['foo']}";
 }
-add_shortcode( 'posts', 'post_listes' );
+add_shortcode( 'posts', 'post_lister' );
 
 
 
 
+/*
+
+function subjects_init() {
+	// create a new taxonomy
+	register_taxonomy(
+		'subjects',
+		'articles',
+		array(
+			'label' => __( 'Subjects' ),
+			'rewrite' => array( 'slug' => 'subjects' ),
+            'hierarchical' => true,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'query_var' => true
+		)
+
+	);
+}
+add_action( 'init', 'subjects_init' );
 
 
 
+function create_post_your_post() {
+	register_post_type( 'articles',
+		array(
+			'labels'       => array(
+				'name'       => __( 'Articles' ),
+			),
+			'public'       => true,
+			'hierarchical' => true,
+			'has_archive'  => true,
+            'menu_position' => 5,
+			'supports'     => array(
+				'title',
+				'editor',
+				'excerpt',
+				'thumbnail',
+			), 
+			'taxonomies'   => array(
+				'post_sub'
+			)
+		)
+	);
+    register_taxonomy_for_object_type( 'post_sub', 'your_post' );
+}
+add_action( 'init', 'create_post_your_post' );
 
 
 
-
-
-
-
-
-
-
+*/
 
 // Add Google Fonts
 // function startwordpress_google_fonts() {

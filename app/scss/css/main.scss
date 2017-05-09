@@ -28,10 +28,13 @@ $grid-breakpoints: (
   xl: 1200px  // Extra large screen / wide desktop
 );
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../scss/css/post_lister.scss';
 
 
 
 // ------------------- bootstrap css overdrive -------------------
+
+
 
 .badge.active{
   opacity: 0.5;
@@ -46,19 +49,19 @@ $grid-breakpoints: (
   }
 }
 
-.badge-cat{
-  font-size: 1.25em;
-}
-
 
 
 // ------------------- html tags -------------------
 
 
 
+* {
+  transition: background-color 0.5s ease;
+}
+
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  font-weight: normal;
+  font-weight: bold;
+  margin: 0;
   color: #333;
 }
 
@@ -69,16 +72,21 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
-html{height: 100%;}
-body{
-    display: flex;
-    flex-direction: column;
-    height: 100%;margin: 0;
-    font-family: 'Quicksand', sans-serif!important;
+html{
+  height: 100%;
+
+  body{
+      display: flex;
+      flex-direction: column;
+      height: 100%;margin: 0;
+      font-family: 'Quicksand', sans-serif!important;
+  }
 }
+
 header#site-header, footer#site-footer{
   flex: 0 0 auto;
 }
+
 article.container{
    flex: 1 0 auto;
 }
@@ -113,11 +121,25 @@ article.container{
       display: flex;
 
       li {
-        display: inline-block;
-        padding: 10px 15px;
+        display: inline-block;        
+
+        &:hover{
+          background-color: #eee;
+        }
+
+        &.current-menu-item{
+          background-color: #ccc;
+        }
+
 
         a{
           color:  #444;
+          padding: 10px 15px;
+          display: block;
+
+          &:hover{
+            text-decoration: none;
+          }
         }
       }
     }
@@ -162,35 +184,61 @@ article.container{
 
 $post-margin: 15px;
 
-.post-container{
+.categories{
+  .active a{
+    color: #999;
+  }
+}
+.tags{
+  .active a{
+    color: #999;
+  }
+}
+
+/* post listing items */
+
+.post-container {
   display: flex;
   flex-wrap: wrap;
   margin-top: $post-margin;
-}
+  
+  .post-li {
+    outline: 1px solid #ccc;
+    width: calc(100% / 4 - 15px);
+    padding: 10px 20px;
+    margin-right: $post-margin;
+    margin-bottom: $post-margin;
 
-.post {
-  outline: 1px solid #ccc;
-  width: calc(100% / 4 - 15px);
-  padding: 10px 20px;
-  margin-right: $post-margin;
-  margin-bottom: $post-margin;
+    .post-title {
+      margin-bottom: 5px;
 
-  .post-title {
-    margin-bottom: 5px;
-
-    a{
-      color: #444;
-      &:hover{
-        text-decoration: none;
+      a{
+        color: #444;        
+        &:hover{
+          text-decoration: none;
+        }
       }
     }
+
+    .post-meta {
+      margin-bottom: 20px;
+      color: #999;
+    }
+
+  }
+}
+
+/* post pages */
+
+.post-page {
+  .post-title {
+    
   }
 
   .post-meta {
     margin-bottom: 20px;
     color: #999;
   }
-
 }
 
 

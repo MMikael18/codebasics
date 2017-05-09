@@ -1,9 +1,16 @@
 <?php php_file(); ?>
-<div class="blog-post">
-	<h2 class="blog-post-title"><?php the_title(); ?></h2>	
+<div class="post-page">
+
+<?php if (has_post_thumbnail() ): ?>
+	<div class="post-thumbnail">
+		<?php the_post_thumbnail('large'); ?>
+	</div><!-- .post-thumbnail -->	
+<?php endif; ?>
+
+	<h2 class="post-title"><?php the_title(); ?></h2>	
  	<?php 
 	 	the_content(); 
-		cbTemp::categories_in_post_links();
+		cbTemp::categories_links();
 	?>
-	<p class="blog-post-meta"><?php the_date(); ?> by <a href="#"><?php the_author(); ?></a></p>
+	<p class="post-meta"><?php the_date(); ?> by <a href="#"><?php the_author(); ?></a></p>
 </div><!-- /.blog-post -->
