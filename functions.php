@@ -14,6 +14,8 @@ require get_template_directory() . '/inc/template-utils.php';
 
 function startwordpress_scripts() {
     wp_enqueue_style('Quicksand', 'https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700', false );
+    wp_enqueue_style('Anton', 'https://fonts.googleapis.com/css?family=Anton', false );
+    
 
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/scripts.js', '', '3.3.6', true );
     wp_enqueue_style ('blog', get_template_directory_uri() . '/css/main.css' );	
@@ -80,14 +82,27 @@ add_action( 'widgets_init', 'theme_cb_sidebars' );
 
 // --------------------------- Shortcodes ---------------------------
 
-
+function row_shortcode( $atts, $content = null ) {
+	return "<div class='row'>".do_shortcode($content)."</div>";
+}
+function colum_shortcode( $atts, $content = null ) {
+	$a = shortcode_atts( array(
+        'grid' => '1',
+    ), $atts );
+    $grid = "col-sm-".$a['grid'];
+    return "<div class='$grid'>".do_shortcode($content)."</div>";
+}
+add_shortcode( 'row', 'row_shortcode' );
+add_shortcode( 'col', 'colum_shortcode' );
 
 function post_lister( $atts ){
-
+    
+    /*
     $a = shortcode_atts( array(
         'foo' => 'something',
         'bar' => 'something else',
     ), $atts );
+    */
 
     /* main post's ID, the below line must be inside the main loop */
     $exclude = get_the_ID();
@@ -99,33 +114,39 @@ function post_lister( $atts ){
     /* secondary query using WP_Query */
     $args = array(
         'category_name' => '',
-        'posts_per_page' => -1 // note: showposts is deprecated!
+        'posts_per_page' => 10 // note: showposts is deprecated!
     );
     $your_query = new WP_Query( $args );
 
     /* loop */
 	ob_start();    
     echo "<div class='post-lister'>";
+    $limit = 1;
     while( $your_query->have_posts() ) : $your_query->the_post();
         if( $exclude != get_the_ID() ) {
             
+            $limit += 1;
+            if($limit == 10) break 1;
+
             $url = get_permalink();
             $title = get_the_title();
-            //$content = get_the_excerpt();
+            $content = get_the_excerpt();
             $tags = cbTemp::get_tags_links();
             $cath = cbTemp::get_categories_links();
-
-            $thumb = get_the_post_thumbnail(get_the_ID(), 'medium' );
             
             echo "<div class='pl-li'>
-                    $thumb
                     <div class='pl-cats'>$cath</div>
                     <div class='pl-cont'>
-                        <h3><a href=$url>$title</a></h3>
-                        <span class='pl-tags'>$tags</span>
+                        <h3>$title</h3>
+                        <p>$content</p>
+                        <div class='pl-tags'>$tags</div>
                     </div>
+                    <a href=$url></a>
                 </div>";
-            
+            $thumb = get_the_post_thumbnail_url(get_the_ID(), 'medium' ); 
+            if(!empty($thumb)){
+                echo "<div class='pl-li' style='background-image:url($thumb)'></div>";
+            }
         }
     endwhile;
     echo "</div>";
