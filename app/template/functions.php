@@ -96,19 +96,12 @@ add_shortcode( 'row', 'row_shortcode' );
 add_shortcode( 'col', 'colum_shortcode' );
 
 function post_lister( $atts ){
-    
-    /*
-    $a = shortcode_atts( array(
-        'foo' => 'something',
-        'bar' => 'something else',
-    ), $atts );
-    */
 
     /* main post's ID, the below line must be inside the main loop */
     $exclude = get_the_ID();
 
     /* alternatively to the above, this would work outside the main loop */
-    global $wp_query;
+    //global $wp_query;
     $exclude = $wp_query->post->ID;
 
     /* secondary query using WP_Query */
@@ -120,34 +113,14 @@ function post_lister( $atts ){
 
     /* loop */
 	ob_start();    
-    echo "<div class='post-lister'>";
+    echo "<div class='post-cards post-larges'>";
     $limit = 1;
     while( $your_query->have_posts() ) : $your_query->the_post();
-        if( $exclude != get_the_ID() ) {
             
             $limit += 1;
             if($limit == 10) break 1;
-
-            $url = get_permalink();
-            $title = get_the_title();
-            $content = get_the_excerpt();
-            $tags = cbTemp::get_tags_links();
-            $cath = cbTemp::get_categories_links();
-            
-            echo "<div class='pl-li'>
-                    <div class='pl-cats'>$cath</div>
-                    <div class='pl-cont'>
-                        <h3>$title</h3>
-                        <p>$content</p>
-                        <div class='pl-tags'>$tags</div>
-                    </div>
-                    <a href=$url></a>
-                </div>";
-            $thumb = get_the_post_thumbnail_url(get_the_ID(), 'medium' ); 
-            if(!empty($thumb)){
-                echo "<div class='pl-li' style='background-image:url($thumb)'></div>";
-            }
-        }
+            get_template_part( 'template-parts/post-cards-thumb', get_post_format() );        
+        
     endwhile;
     echo "</div>";
 

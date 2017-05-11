@@ -1,4 +1,4 @@
-<div class="col-sm-2 col-sm-offset-1 blog-sidebar">
+<div class="main-sidebar">
     <div class="sidebar-module sidebar-module-inset">
         <h4>About</h4>
         <p><?php the_author_meta( 'description' ); ?> </p>
@@ -12,4 +12,4 @@
     <?php if ( is_active_sidebar( 'sidepar-post' ) ) : ?>
         <?php dynamic_sidebar( 'sidepar-post' ); ?>					
     <?php endif; ?>
-</div><!-- /.blog-sidebar -->
+</div>
