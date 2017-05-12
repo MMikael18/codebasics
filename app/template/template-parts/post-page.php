@@ -1,5 +1,5 @@
 <?php php_file(); ?>
-<div class="post-page">
+<article class="post-page">
 
 	<?php if (has_post_thumbnail() ): ?>
 		<div class="post-thumbnail">
@@ -11,7 +11,7 @@
 	<?php endif; ?>
  	<?php 
 	 	the_content(); 
-		cbTemp::categories_links();
+		//cbTemp::categories_links();
 	?>
 	<p class="post-meta"><?php the_date(); ?> by <a href="#"><?php the_author(); ?></a></p>
-</div><!-- /.blog-post -->
+</article><!-- /.blog-post -->

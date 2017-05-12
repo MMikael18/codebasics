@@ -1,5 +1,5 @@
 <?php php_file(); ?>
-<div class="post-li">
+<article class="post-li">
 	<div class="post-content">
 		<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 		<?php 
@@ -13,4 +13,4 @@
 			<?php the_post_thumbnail('thumbnail'); ?>
 		</div><!-- .post-thumbnail -->	
 	<?php endif; ?>
-</div><!-- /.blog-post -->
+</article><!-- /.blog-post -->

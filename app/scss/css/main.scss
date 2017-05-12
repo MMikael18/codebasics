@@ -51,7 +51,7 @@ $grid-breakpoints: (
 
 
 
-// ------------------- html tags -------------------
+// ------------------- html variables -------------------
 
 
 
@@ -78,7 +78,9 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-
+main{
+  display: block;
+}
 
 
 /* ------------------- Site bone ------------------- */
@@ -93,7 +95,7 @@ html{
       flex-direction: column;
       height: 100%;margin: 0;
       font-family: 'Quicksand', sans-serif!important;
-      background-color: #eee;
+      background-color: white;
   }
 }
 
@@ -101,7 +103,7 @@ header#site-header, footer#site-footer{
   flex: 0 0 auto;
 }
 
-article.container{
+main.container{
    flex: 1 0 auto;
 }
 
@@ -121,13 +123,10 @@ header#site-header {
   right: 0;
   z-index: $z-header;
 
-  
-  
   #header-content{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 
     #cb-sitelogo{img{}}
 
@@ -199,24 +198,52 @@ header#site-header {
 
 
 .blog-header{
-  padding: 15px 0;
-  .blog-title{
-    display: inline-block;
+  padding: 100px 0;
+  
+  .blog-title,
+  .blog-description {
+    display: inline-block;    
+    box-shadow: 0px 2px 18px 3px rgba(0,0,0,0.15);
   }
+
+  .blog-title{
+    background-color: #49515c;
+    padding: 25px 50px;
+  }
+
   .blog-description{
-    display: inline-block;
+    background-color: #292c33;
+    padding: 10px 40px;
+    left: -212px;
+    position: relative;
+    top: 40px;
   }
 }
 
 
 /* ------------------- Blog posts ------------------- */
 
-article#site-container{
-  margin-top: 100px;
+main{
+  margin-top: 65px;
   z-index: $z-contentmain;
 }
 
+section.upper{
+  background: #657082;
+  background: -moz-linear-gradient(-45deg, #657082 0%, #292c33 100%);
+  background: -webkit-linear-gradient(-45deg, #657082 0%,#292c33 100%);
+  background: linear-gradient(135deg, #657082 0%,#292c33 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#657082', endColorstr='#292c33',GradientType=1 );
+
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  *{
+    color: white;
+  }
+}
+
 /* sidebar */
+
 .flex-box{
   display: flex;
 }
@@ -226,6 +253,7 @@ article#site-container{
     margin-bottom: 15px;
     background-color: white;
     align-items: stretch;
+    box-shadow: 0px 2px 18px 3px rgba(0,0,0,0.05);
 }
 
 /* post pages */
@@ -247,7 +275,7 @@ article#site-container{
 
 
 
-#site-footer {
+footer#site-footer {
   padding: 40px 0;
   color: #999;
   text-align: center;
