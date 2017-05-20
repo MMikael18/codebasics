@@ -95,7 +95,7 @@ html{
       flex-direction: column;
       height: 100%;margin: 0;
       font-family: 'Quicksand', sans-serif!important;
-      background-color: white;
+      background-color: #ebecf1;
   }
 }
 
@@ -229,16 +229,18 @@ main{
 }
 
 section.upper{
+  /*
   background: #657082;
   background: -moz-linear-gradient(-45deg, #657082 0%, #292c33 100%);
   background: -webkit-linear-gradient(-45deg, #657082 0%,#292c33 100%);
   background: linear-gradient(135deg, #657082 0%,#292c33 100%);
+  */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#657082', endColorstr='#292c33',GradientType=1 );
 
   margin-bottom: 30px;
   padding-bottom: 15px;
   *{
-    color: white;
+    //color: white;
   }
 }
 

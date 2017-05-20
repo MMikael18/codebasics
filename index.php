@@ -33,7 +33,7 @@
 						get_template_part( 'template-parts/post-cards', get_post_format() );
 					endwhile;
 					?>
-				</div>
+				</div> 
 			</div>
 		</div> <!-- /.row -->
 	</div>
@@ -50,10 +50,10 @@
 				'post_type' => 'post',
 				'category_name' => $nowcat,
 				'tag' => $tag,
-				'posts_per_page' => 10,
+				'posts_per_page' => 10, 
 				'paged' => $paged,
 				'offset' => 4
-			);
+			); 
 			$query = new WP_Query( $args );
 			/* loop */			
             while( $query->have_posts() ) : $query->the_post();

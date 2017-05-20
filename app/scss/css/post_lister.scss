@@ -3,41 +3,28 @@ $z-toplink: 20;
 
 $item-margin: 15px;
 
-.post-larges{
-    .pl-li {
-        
-        &:nth-child(1),
-        &:nth-child(6){
-            background-color: #076cf2;
-            width: calc(50% - #{$item-margin});
-            
-            *{
-                color: white;
-            }            
-        }
-    }
-} 
-
 .post-cards {
     display: flex;
-    flex-wrap: wrap;
+    //flex-wrap: wrap;
+
+    .post-column {
+        width: 25%;
+    }
 
     .pl-li {
         position: relative;    
-        width: calc(25% - #{$item-margin}); 
+        width: calc(100% - #{$item-margin});
         margin-right: $item-margin;
         margin-bottom: $item-margin;
         background-size: cover;
         background-color: white;
-
-        box-shadow: 0px 2px 18px 3px rgba(0,0,0,0.15);
 
         > a {
             position: absolute;
             z-index: $z-bottomlink;
             top: 0;
             bottom: 0;
-            left: 0;
+            left: 0; 
             right: 0;            
         }
         
@@ -47,6 +34,7 @@ $item-margin: 15px;
             padding: 5px 15px;
             white-space: nowrap;
             display: inline-block;
+
             a{
                 position: relative;
                 z-index: $z-toplink;
@@ -61,12 +49,26 @@ $item-margin: 15px;
             }
         } 
 
-        .pl-cont{
+        .pl-cont-top{
             display: block;
-            padding: 80px 50px 80px 50px;
-            min-height: 320px;
+            padding: 80px 50px 0px 50px;
+            min-height: 100px;
 
             h3{}
+            
+        }
+
+        .thumb{
+            width: 100%;
+            padding-bottom: 50%; 
+            background-size: cover;
+        }
+
+        .pl-cont-bottom{
+            display: block;
+            padding: 0px 50px 80px 50px;
+            min-height: 120px;
+
             .pl-tags{
                 display: block;
                 height: 1em;
@@ -88,7 +90,6 @@ $item-margin: 15px;
         display: flex;        
         background-color: white;
         margin-bottom: $item-margin; 
-        box-shadow: 0px 2px 18px 3px rgba(0,0,0,0.05);
         
         &:hover{
             /*box-shadow: 0px 2px 18px 3px rgba(0,0,0,0.75);   */

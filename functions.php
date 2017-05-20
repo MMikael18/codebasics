@@ -113,15 +113,25 @@ function post_lister( $atts ){
 
     /* loop */
 	ob_start();    
-    echo "<div class='post-cards post-larges'>";
-    $limit = 1;
-    while( $your_query->have_posts() ) : $your_query->the_post();
+    echo "<div class='post-cards'>";
+    $colm = [];
+    $colm_num = 0;
+
+    while( $your_query->have_posts() ) : $your_query->the_post();            
             
-            $limit += 1;
-            if($limit == 10) break 1;
-            get_template_part( 'template-parts/post-cards-thumb', get_post_format() );        
+            ob_start();
+            get_template_part( 'template-parts/post-cards-thumb', get_post_format() );            
+            $colm[$colm_num] .= ob_get_contents();
+            $colm_num += $colm_num == 3 ? -3 : 1 ;
+            ob_end_clean();
         
     endwhile;
+    //echo var_dump($colm);
+    echo "<div class='post-column' >" . $colm[0] . "</div>";
+    echo "<div class='post-column' >" . $colm[1] . "</div>";
+    echo "<div class='post-column' >" . $colm[2] . "</div>";
+    echo "<div class='post-column' >" . $colm[3] . "</div>";
+
     echo "</div>";
 
 	return ob_get_clean();
