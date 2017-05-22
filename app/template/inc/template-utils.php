@@ -104,9 +104,9 @@ class cbTemp {
 				}
 
 				$newUrl = esc_url(add_query_arg( $query_name, urlencode($newQstring) ));
-				$output .=  '<span class="'.$class.'"><a href="' . $newUrl . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $tag->name ) ) . '">' . esc_html( $tag->name ) . '</a></span> ';
+				$output .=  '<li class="'.$class.'"><a href="' . $newUrl . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $tag->name ) ) . '">' . esc_html( $tag->name ) . '</a></li>';
 			}
-			echo trim( $output, $separator );
+			echo "<ul>" . $output . "</ul>";
 		}
 		return $qString;
 	}

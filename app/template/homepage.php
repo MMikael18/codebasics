@@ -6,6 +6,7 @@ Template Post Type: post, page, event
 // Page code here...
 ?>
 <?php get_header(); ?>
+
 <?php php_file(); ?>
 
 <section class="upper">
@@ -15,7 +16,7 @@ Template Post Type: post, page, event
 			<div class="col-sm-12">			
 				<?php 
 					if ( have_posts() ) : while ( have_posts() ) : the_post();
-						//get_template_part( '/template-parts/post-page', get_post_format() );  
+						get_template_part( '/template-parts/post-page', get_post_format() );  
 					endwhile; endif; 
 				?>
 			</div> <!-- /.col -->
@@ -23,14 +24,17 @@ Template Post Type: post, page, event
 	</div>
 </section>
 
-<div class="container">
-	<div class="row">
-		<div class="col-sm-12">		
-			<?php echo do_shortcode( '[posts]' ); ?>
-		</div> <!-- /.col -->
-	</div> <!-- /.row -->
-</div>
+<?php get_template_part( 'template-parts/nav', 'main' ); ?>
 
+<section class="botter">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">		
+				<?php echo do_shortcode( '[posts]' ); ?>
+			</div> <!-- /.col -->
+		</div> <!-- /.row -->
+	</div>
+</section>
 <?php 
 get_footer(); 
 ?>

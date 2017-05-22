@@ -12,7 +12,7 @@ if(!empty($thumb_url)){
 }
 
 echo "<article class='pl-li'>
-        <div class='pl-cats'>$cath</div>
+        <div class='pl-button-top'>$cath</div>
         <div class='pl-cont-top'>
             <h3>$title</h3>
             $date
@@ -20,8 +20,8 @@ echo "<article class='pl-li'>
         $thumb
         <div class='pl-cont-bottom'>
             <p>$content</p>
-            <div class='pl-tags'>$tags</div>
         </div>
+        <div class='pl-button-bottom'>$tags</div>
         <a href=$url></a>
     </article>";
 

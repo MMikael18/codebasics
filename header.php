@@ -17,9 +17,9 @@
          	<div class="row">
 		        <div class="col-sm-12" id="header-content">
               <?php 
-                cbTemp::sitelogo();
-                get_template_part( 'template-parts/nav', 'main' );
-                cbTemp::basesearch(); 
+                /*cbTemp::sitelogo();*/
+                
+                /*cbTemp::basesearch(); */
               ?>
             </div>          
           </div>

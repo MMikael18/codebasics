@@ -28,53 +28,71 @@ $item-margin: 15px;
             right: 0;            
         }
         
-        .pl-cats{
-            position: absolute;
-            background-color: #444;            
+        .pl-button-top {
+            position: absolute;          
+            top: 0;
             padding: 5px 15px;
             white-space: nowrap;
             display: inline-block;
+            width: 100%;
+            text-transform: uppercase;
 
-            a{
+            a {
                 position: relative;
                 z-index: $z-toplink;
-                color: white;
                 font-size: .8em;
                 font-weight: bold;
 
-                &:hover{
+                &:hover {
                     text-decoration: none;
                 }
 
             }
         } 
 
-        .pl-cont-top{
+        .pl-cont-top {
             display: block;
-            padding: 80px 50px 0px 50px;
+            padding: 90px 40px 0px 40px;
             min-height: 100px;
 
-            h3{}
+            h3 {}
             
         }
 
-        .thumb{
+        .thumb {
+            margin-top: 40px;
+            margin-bottom: 40px;
             width: 100%;
             padding-bottom: 50%; 
             background-size: cover;
         }
 
-        .pl-cont-bottom{
+        .pl-cont-bottom {
             display: block;
-            padding: 0px 50px 80px 50px;
+            padding: 0px 40px 90px 40px;
             min-height: 120px;
-
-            .pl-tags{
-                display: block;
-                height: 1em;
-            }
         }
         
+        .pl-button-bottom {
+            position: absolute;
+            bottom: 0;     
+            padding: 5px 15px;
+            white-space: nowrap;
+            display: inline-block;
+            width: 100%;
+
+            a {
+                position: relative;
+                z-index: $z-toplink;
+                font-size: .8em;
+                font-weight: bold;
+
+                &:hover {
+                    text-decoration: none;
+                }
+
+            }            
+        }
     
         
     }

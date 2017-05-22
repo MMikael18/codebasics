@@ -14,7 +14,7 @@ require get_template_directory() . '/inc/template-utils.php';
 
 function startwordpress_scripts() {
     wp_enqueue_style('Quicksand', 'https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700', false );
-    wp_enqueue_style('Anton', 'https://fonts.googleapis.com/css?family=Anton', false );
+    wp_enqueue_style('Roboto', 'https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet', false );
     
 
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/scripts.js', '', '3.3.6', true );
@@ -126,7 +126,7 @@ function post_lister( $atts ){
             ob_end_clean();
         
     endwhile;
-    //echo var_dump($colm);
+
     echo "<div class='post-column' >" . $colm[0] . "</div>";
     echo "<div class='post-column' >" . $colm[1] . "</div>";
     echo "<div class='post-column' >" . $colm[2] . "</div>";
@@ -135,7 +135,6 @@ function post_lister( $atts ){
     echo "</div>";
 
 	return ob_get_clean();
-    //return "foo = {$a['foo']}";
 }
 add_shortcode( 'posts', 'post_lister' );
 
