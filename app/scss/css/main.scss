@@ -78,7 +78,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 main{
-  display: block;
+  /*display: block;*/
 }
 
 
@@ -90,6 +90,7 @@ html{
   height: 100%;
 
   body{
+      font-size: 14pt;
       display: flex;
       flex-direction: column;
       height: 100%;margin: 0;
@@ -102,7 +103,7 @@ header#site-header, footer#site-footer{
   flex: 0 0 auto;
 }
 
-main.container{
+main#site-container{
    flex: 1 0 auto;
 }
 
@@ -110,13 +111,37 @@ main.container{
 
 /* ------------------- HEADER ------------------- */
 
+#post-header{
+  background-size: cover;
+  min-height: 350px;
 
+  #open-post-header{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    opacity: .5;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 100%;
+    cursor: pointer;
+  }
 
+  .post-header-container{
+    position: relative;
+    overflow: hidden;
+
+    #post-header-page{
+      background-color: white;
+      padding: 15px;
+      margin: 15px 0; 
+    }
+  }
+}
+
+/*
 header#site-header {
   background-color: white;
-  position: fixed;
-  left: 0;
-  right: 0;
   z-index: $z-header;
 
   #header-content{
@@ -173,7 +198,7 @@ header#site-header {
     top: 40px;
   }
 }
-
+*/
 /* Main navigation */
 #top-menu {
   text-align: center;
@@ -228,7 +253,6 @@ header#site-header {
 /* ------------------- Blog posts ------------------- */
 
 main{
-  margin-top: 60px;
   z-index: $z-contentmain;
 
   .tag-nav{
@@ -275,9 +299,12 @@ main{
   }
 
   section.upper{  
-    margin-bottom: 30px;
+    position: relative;
+    /*
+    background-color: white;
+    border-bottom: solid 1px #ebecf1; 
     padding-bottom: 15px;
-    
+    */
   }
 
   section.botter{

@@ -13,11 +13,11 @@ require get_template_directory() . '/inc/template-utils.php';
 
 
 function startwordpress_scripts() {
-    wp_enqueue_style('Quicksand', 'https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700', false );
-    wp_enqueue_style('Roboto', 'https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet', false );
+    wp_enqueue_style('Quicksand', '//fonts.googleapis.com/css?family=Quicksand:300,400,500,700', false );
+    wp_enqueue_style('Roboto', '//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700', false );
     
 
-    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/scripts.js', '', '3.3.6', true );
+    wp_enqueue_script('codejs', get_template_directory_uri() . '/js/scripts.js', '', '1', true );
     wp_enqueue_style ('blog', get_template_directory_uri() . '/css/main.css' );	
 }
 add_action( 'wp_enqueue_scripts', 'startwordpress_scripts' );
@@ -87,9 +87,9 @@ function row_shortcode( $atts, $content = null ) {
 }
 function colum_shortcode( $atts, $content = null ) {
 	$a = shortcode_atts( array(
-        'grid' => '1',
+        'num' => '1',
     ), $atts );
-    $grid = "col-sm-".$a['grid'];
+    $grid = "col-sm-".$a['num'];
     return "<div class='$grid'>".do_shortcode($content)."</div>";
 }
 add_shortcode( 'row', 'row_shortcode' );

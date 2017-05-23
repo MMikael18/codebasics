@@ -17,14 +17,13 @@
          	<div class="row">
 		        <div class="col-sm-12" id="header-content">
               <?php 
-                /*cbTemp::sitelogo();*/
-                
-                /*cbTemp::basesearch(); */
+                cbTemp::sitelogo();                
+                cbTemp::basesearch();
               ?>
             </div>          
           </div>
       </div>
     </header>
 
-    <main>
+    <main id="site-container">
       

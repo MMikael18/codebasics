@@ -31,7 +31,7 @@ $item-margin: 15px;
         .pl-button-top {
             position: absolute;          
             top: 0;
-            padding: 5px 15px;
+            padding: 20px 40px;
             white-space: nowrap;
             display: inline-block;
             width: 100%;
@@ -42,6 +42,7 @@ $item-margin: 15px;
                 z-index: $z-toplink;
                 font-size: .8em;
                 font-weight: bold;
+                color: #cccccc;
 
                 &:hover {
                     text-decoration: none;
@@ -71,12 +72,13 @@ $item-margin: 15px;
             display: block;
             padding: 0px 40px 90px 40px;
             min-height: 120px;
+            font-weight: 300;
         }
         
         .pl-button-bottom {
             position: absolute;
             bottom: 0;     
-            padding: 5px 15px;
+            padding: 20px 40px;
             white-space: nowrap;
             display: inline-block;
             width: 100%;
@@ -86,6 +88,7 @@ $item-margin: 15px;
                 z-index: $z-toplink;
                 font-size: .8em;
                 font-weight: bold;
+                color: #cccccc;
 
                 &:hover {
                     text-decoration: none;
