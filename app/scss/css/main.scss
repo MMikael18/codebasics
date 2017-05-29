@@ -65,7 +65,7 @@ $z-contentmain: 5;
 
 
 * {
-  transition: background-color 0.5s ease, border 500ms ease-out;
+  transition: background-color 2s ease, border 500ms ease-out;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -77,9 +77,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-main{
-  /*display: block;*/
-}
+main{}
 
 
 /* ------------------- Site bone ------------------- */
@@ -95,7 +93,7 @@ html{
       flex-direction: column;
       height: 100%;margin: 0;
       font-family: 'Roboto', sans-serif;
-      background-color: #ebecf1;
+      background-color: #202930;
   }
 }
 
@@ -103,7 +101,7 @@ header#site-header, footer#site-footer{
   flex: 0 0 auto;
 }
 
-main#site-container{
+main{
    flex: 1 0 auto;
 }
 
@@ -115,90 +113,54 @@ main#site-container{
   background-size: cover;
   min-height: 350px;
 
+  #open-post-header, #close-header-post{
+      display: inline-block;
+      color: white;
+      background-color: #74d478;
+      font-weight: bold;
+      border-radius: 100%;      
+      font-size: 1.5em;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+  }
+  #open-post-header:hover, #close-header-post:hover{
+    background-color: #444;
+    color: white;
+  }
+
   #open-post-header{
     position: absolute;
     right: 15px;
     top: 15px;
-    opacity: .5;
-    width: 50px;
-    height: 50px;
-    background-color: white;
-    border-radius: 100%;
-    cursor: pointer;
+    padding: 4px 13px;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
   }
 
-  .post-header-container{
+  .post-header-container {
     position: relative;
     overflow: hidden;
 
-    #post-header-page{
+    #post-header-page {
       background-color: white;
       padding: 15px;
       margin: 15px 0; 
     }
-  }
-}
 
-/*
-header#site-header {
-  background-color: white;
-  z-index: $z-header;
-
-  #header-content{
-    text-align: center;
-
-    #cb-sitelogo{img{}}
-
-    .cb-search form { 
-      display: flex;
-
-      label{
-        margin-bottom: 0;
-        .screen-reader-text{
-          display: none;
-        }
-        .search-field{
-          border-width: 0;   
-        }
-      }
-
-      .search-submit{
-        border-width: 0;
-        width: 26px;
-        cursor: pointer;
-      }
-
+    #close-header-post{
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      border: solid 1px;
+      padding: 3px 13px;
     }
 
   }
-
 }
 
 
-
-.blog-header{
-  padding: 100px 0;
-  
-  .blog-title,
-  .blog-description {
-    display: inline-block;    
-    box-shadow: 0px 2px 18px 3px rgba(0,0,0,0.15);
-  }
-
-  .blog-title{
-    background-color: #49515c;
-    padding: 25px 50px;
-  }
-
-  .blog-description{
-    background-color: #292c33;
-    padding: 10px 40px;
-    left: -212px;
-    position: relative;
-    top: 40px;
-  }
-}
-*/
 /* Main navigation */
 #top-menu {
   text-align: center;
@@ -300,11 +262,6 @@ main{
 
   section.upper{  
     position: relative;
-    /*
-    background-color: white;
-    border-bottom: solid 1px #ebecf1; 
-    padding-bottom: 15px;
-    */
   }
 
   section.botter{
@@ -323,7 +280,6 @@ main{
       margin-bottom: 15px;
       background-color: white;
       align-items: stretch;
-      box-shadow: 0px 2px 18px 3px rgba(0,0,0,0.05);
   }
 
   /* post pages */

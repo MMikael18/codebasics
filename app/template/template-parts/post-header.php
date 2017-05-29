@@ -5,7 +5,7 @@
 	endif;
 ?>
 <header id="post-header" style="<?php echo $thumbnail ?>">
-	<div id="open-post-header"></div>
+	<div id="open-post-header">&#10006;</div>
 	<div data-post-header="" class="container post-header-container"  style="display: none;">
 		<article id="post-header-page">	
 			<?php if(!is_page()) : ?>
@@ -17,6 +17,7 @@
 				//cbTemp::categories_links();
 			?>
 			<p class="post-meta"><?php the_date(); ?> by <a href="#"><?php the_author(); ?></a></p>
+			<div id="close-header-post">&#10006;</div>
 		</article><!-- /.blog-post -->
 	</div>
 </header>

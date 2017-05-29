@@ -1,9 +1,7 @@
 <?php get_header(); ?>
 <?php php_file(); ?>
 
-<section class="upper">
-
-</section>
+<section class="upper"></section>
 
 <?php get_template_part( 'template-parts/nav', 'main' ); ?>
 
@@ -25,4 +23,5 @@
 		</div> <!-- /.row -->
 	</div>
 </section>
+
 <?php get_footer(); ?>

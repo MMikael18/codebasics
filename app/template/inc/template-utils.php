@@ -17,7 +17,7 @@ class cbTemp {
 
 	/* --- Get Posts Thing --- */
 
-
+	/*
 	public static function all_categories_links() {
 
 		$categories = get_categories( array(
@@ -38,6 +38,7 @@ class cbTemp {
 		}
 		return $nowcat;
 	}
+	*/
 
 	public static function categories_links() {
 		echo cbTemp::get_categories_links();		
@@ -58,7 +59,10 @@ class cbTemp {
 
 	/* --- Get Posts Thing --- */
 
-	public static function tages_multiselect($cat) {
+	public static function tages_multiselect() {
+		$category = get_queried_object();
+		$category = $category->name;
+
 		$query_name = "tags";
 
 		/* Select multiple tags */
@@ -69,20 +73,22 @@ class cbTemp {
 			'orderby'    => 'name',
 			'show_count' => true
 		));
-		if(isset($cat) && ! empty( $tags )){			
+		if(isset($category) && ! empty( $tags )){			
 			$isTags = [];
 			foreach( $tags as $tag ) {
 				$args = array(
 					'post_type' => 'post',
 					'post_count' => 1,
-					'category_name' => $cat,					
+					'category_name' => $category,					
 					'tag' => $tag->slug
 				);
 				$query = new WP_Query( $args );
-				if($query->have_posts()){
+				if($query->have_posts()){					
 					array_push($isTags,$tag);
 				}
+				
 			}	
+			
 			$tags = $isTags;			
 		}
 
