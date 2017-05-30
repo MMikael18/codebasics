@@ -89,11 +89,13 @@ html{
 
   body{
       font-size: 14pt;
+      font-weight: 300;
       display: flex;
       flex-direction: column;
-      height: 100%;margin: 0;
+      height: 100%;
+      margin: 0;
       font-family: 'Roboto', sans-serif;
-      background-color: #202930;
+      background-color: #8193a0;
   }
 }
 
@@ -109,55 +111,60 @@ main{
 
 /* ------------------- HEADER ------------------- */
 
+#page-title{
+  color: #fff;
+  margin: 30px 0 0 30px;
+  font-size: 4em;
+  position: absolute;
+  font-family: 'Monoton', cursive;
+}
+
+/* post-header.php */
 #post-header{
   background-size: cover;
-  min-height: 350px;
+  height: 150px;
+  overflow: hidden;
+  transition: height 1s ease;
 
-  #open-post-header, #close-header-post{
-      display: inline-block;
-      color: white;
-      background-color: #74d478;
-      font-weight: bold;
-      border-radius: 100%;      
-      font-size: 1.5em;
-      width: 50px;
-      height: 50px;
-      cursor: pointer;
-  }
-  #open-post-header:hover, #close-header-post:hover{
-    background-color: #444;
-    color: white;
+  &.openOut{
+    height: 500px;
   }
 
-  #open-post-header{
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    padding: 4px 13px;
-    -ms-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-
-  .post-header-container {
+  #post-header-page {
+    background-color: white;
+    padding: 25px 50px;
+    -webkit-transform: rotate(17deg);
+    transform: rotate(-17deg);
+    top: 200px;
     position: relative;
-    overflow: hidden;
-
-    #post-header-page {
-      background-color: white;
-      padding: 15px;
-      margin: 15px 0; 
+    width: 1266px;
+    margin: 15px auto;
+    transition: transform 1s ease, top 500ms ease-out;
+    
+    &.rollOut{
+      -webkit-transform: rotate(0deg)!important;
+      transform: rotate(0deg)!important;
+      top: 20px!important;
     }
 
-    #close-header-post{
+    #post-head-content{
+      
+    }
+
+    #header-post-button{
       position: absolute;
-      top: 30px;
-      right: 30px;
-      border: solid 1px;
-      padding: 3px 13px;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-top: 100px solid #74d478;
+      border-left: 100px solid transparent;
+      cursor: pointer;
     }
 
-  }
+    }
+    
+
 }
 
 
@@ -262,6 +269,7 @@ main{
 
   section.upper{  
     position: relative;
+    background-color: #202930;
   }
 
   section.botter{
@@ -285,14 +293,23 @@ main{
   /* post pages */
 
   .post-page {
+    background-color: white;
+    padding: 100px;
+    font-size: 2rem;
+
     .post-title {
-      
+      font-size: 8rem;
     }
 
+    > p{
+      margin-bottom: 4rem;
+    }
     .post-meta {
       margin-bottom: 20px;
       color: #999;
+      font-size: 1.5rem;
     }
+
   }
 
 }

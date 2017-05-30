@@ -5,14 +5,10 @@
 
 $( document ).ready(function() {
     
-    $( "#open-post-header" ).bind( "click", function() {
-        $( "[data-post-header]" ).toggle();
-        $( "#open-post-header" ).toggle();
-    });
 
-    $( "#close-header-post" ).bind( "click", function() {
-        $( "[data-post-header]" ).toggle();
-        $( "#open-post-header" ).show();  
+    $( "#header-post-button" ).bind( "click", function() {
+        $( "#post-header-page" ).toggleClass( "rollOut" );
+        $( "#post-header" ).toggleClass( "openOut" );
     });
     
 });

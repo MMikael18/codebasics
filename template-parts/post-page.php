@@ -9,9 +9,7 @@
 	<?php if(!is_page()) : ?>
 		<h2 class="post-title"><?php the_title(); ?></h2>	
 	<?php endif; ?>
- 	<?php 
-	 	the_content(); 
-		//cbTemp::categories_links();
-	?>
+ 	<?php the_content(); ?>
 	<p class="post-meta"><?php the_date(); ?> by <a href="#"><?php the_author(); ?></a></p>
+
 </article><!-- /.blog-post -->

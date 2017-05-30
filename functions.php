@@ -15,6 +15,7 @@ require get_template_directory() . '/inc/template-utils.php';
 function startwordpress_scripts() {
     wp_enqueue_style('Quicksand', '//fonts.googleapis.com/css?family=Quicksand:300,400,500,700', false );
     wp_enqueue_style('Roboto', '//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700', false );
+    wp_enqueue_style('Monoton', '//fonts.googleapis.com/css?family=Monoton|Roboto', false );
     
 
     wp_enqueue_script('codejs', get_template_directory_uri() . '/js/scripts.js', '', '1', true );

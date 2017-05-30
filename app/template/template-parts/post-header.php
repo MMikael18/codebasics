@@ -5,19 +5,12 @@
 	endif;
 ?>
 <header id="post-header" style="<?php echo $thumbnail ?>">
-	<div id="open-post-header">&#10006;</div>
-	<div data-post-header="" class="container post-header-container"  style="display: none;">
-		<article id="post-header-page">	
-			<?php if(!is_page()) : ?>
-				<h2 class="post-title"><?php the_title(); ?></h2>	
-			<?php endif; ?>
-			<?php 
-				the_content(); 
-				//get_template_part( 'template-parts/site-description', 'description' );
-				//cbTemp::categories_links();
-			?>
+	<h1 id="page-title">Brewed Bytes & Coffee</h1>
+	<article id="post-header-page">
+		<div id="post-head-content">				
+			<?php the_content(); ?>
 			<p class="post-meta"><?php the_date(); ?> by <a href="#"><?php the_author(); ?></a></p>
-			<div id="close-header-post">&#10006;</div>
-		</article><!-- /.blog-post -->
-	</div>
+		</div>
+		<div id="header-post-button"></div>
+	</article><!-- /.blog-post -->
 </header>
