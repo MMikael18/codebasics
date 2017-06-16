@@ -36,14 +36,18 @@ $grid-breakpoints: (
 
 
 
-.badge.active{
+.badge.active
+{
   opacity: 0.5;
 }
 
-.badge{
-  a{
+.badge
+{
+  a
+  {
     color: white;
-    &:hover{
+    &:hover
+    {
       text-decoration: none;
     }
   }
@@ -64,30 +68,37 @@ $z-contentmain: 5;
 
 
 
-* {
+* 
+{
   transition: background-color 2s ease, border 500ms ease-out;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 
+{
   margin-bottom: .5em;
   font-weight: 400;
   color: #333;
-  a{
+
+  a
+  {
     color: #333;
   }
 }
 
-main{}
+main
+{}
 
 
 /* ------------------- Site bone ------------------- */
 
 
 
-html{
+html
+{
   height: 100%;
 
-  body{
+  body
+  {
       font-size: 14pt;
       font-weight: 300;
       display: flex;
@@ -99,11 +110,13 @@ html{
   }
 }
 
-header#site-header, footer#site-footer{
+header#site-header, footer#site-footer
+{
   flex: 0 0 auto;
 }
 
-main{
+main
+{
    flex: 1 0 auto;
 }
 
@@ -111,7 +124,8 @@ main{
 
 /* ------------------- HEADER ------------------- */
 
-#page-title{
+#page-title
+{
   color: #fff;
   margin: 30px 0 0 30px;
   font-size: 4em;
@@ -120,17 +134,20 @@ main{
 }
 
 /* post-header.php */
-#post-header{
+#post-header
+{
   background-size: cover;
   height: 150px;
   overflow: hidden;
   transition: height 1s ease;
 
-  &.openOut{
+  &.openOut
+  {
     height: 500px;
   }
 
-  #post-header-page {
+  #post-header-page 
+  {
     background-color: white;
     padding: 25px 50px;
     -webkit-transform: rotate(17deg);
@@ -141,17 +158,20 @@ main{
     margin: 15px auto;
     transition: transform 1s ease, top 500ms ease-out;
     
-    &.rollOut{
+    &.rollOut
+    {
       -webkit-transform: rotate(0deg)!important;
       transform: rotate(0deg)!important;
       top: 20px!important;
     }
 
-    #post-head-content{
+    #post-head-content
+    {
       
     }
 
-    #header-post-button{
+    #header-post-button
+    {
       position: absolute;
       top: 0;
       right: 0;
@@ -162,57 +182,66 @@ main{
       cursor: pointer;
     }
 
-    }
+  }
     
 
 }
 
 
 /* Main navigation */
-#top-menu {
+#top-menu 
+{
   text-align: center;
   background-color: white;
 
-  #top-menu-content{
+  #top-menu-content
+  {
     margin: 0 auto;
     display: inline-block;  
 
-    ul{
+    ul
+    {
       margin: 0;
       padding: 0;
       list-style: none;
       display: flex;
 
-      li {
+      li 
+      {
         display: inline-block;        
         margin-right: 5px;
         padding-top: 7px;
         border-bottom: white solid 1px; 
 
-        &:hover{
+        &:hover
+        {
           //background-color: #eee;
           border-bottom: #74d478 solid 7px; 
         }
 
-        &.current-menu-item{
+        &.current-menu-item
+        {
           //background-color: #ccc;
           border-bottom: #74d478 solid 7px; 
         }
 
 
-        a{
+        a
+        {
           color:  #444;
           padding: 11px;            
           display: block;
 
-          &:hover{
+          &:hover
+          {
             text-decoration: none;
           }
         }
         
       }
 
-      li:last-child{
+      li:last-child
+      {
           margin-right: 0;
       }
     }
@@ -221,43 +250,53 @@ main{
 
 /* ------------------- Blog posts ------------------- */
 
-main{
+main
+{
   z-index: $z-contentmain;
 
-  .tag-nav{
+  .tag-nav
+  {
     background-color: #35414a;
 
-    #tag-content{
+    #tag-content
+    {
       text-align: center;
 
-      nav{
+      nav
+      {
         display: inline-block;
 
-        ul{
+        ul
+        {
           margin: 0 auto;
           display: flex;
           list-style: none;
           margin: 0;
           padding: 0;
 
-          li{
+          li
+          {
 
-            a{
+            a
+            {
               color: white;
               padding: 11px;
               display: block;
               text-decoration: none;
             }
 
-            &.active{
+            &.active
+            {
               background-color: #556a6d;
             }
 
-            &.active:hover{
+            &.active:hover
+            {
               background-color: #45545f;
             }
 
-            &:hover{
+            &:hover
+            {
               background-color: #45545f;
             }
 
@@ -267,22 +306,27 @@ main{
     }
   }
 
-  section.upper{  
+  section.upper
+  {
     position: relative;
     background-color: #202930;
   }
 
-  section.botter{
+  section.botter
+  {
     margin-top: 30px;
     padding-bottom: 15px;
   }
 
   /* sidebar */
 
-  .flex-box{
+  .flex-box
+  {
     display: flex;
   }
-  .main-sidebar{
+  
+  .main-sidebar
+  {
       width: 100%;
       padding: 50px;
       margin-bottom: 15px;
@@ -292,19 +336,31 @@ main{
 
   /* post pages */
 
-  .post-page {
+  .post-page 
+  {
     background-color: white;
     padding: 100px;
-    font-size: 2rem;
+    font-size: 1.5rem;
 
-    .post-title {
-      font-size: 8rem;
+    #home-link
+    {
+      position: relative;
+      top: -15px;
+      font-size: .7em;
     }
 
-    > p{
+    .post-title 
+    {
+      font-size: 4rem;
+    }
+
+    > p
+    {
       margin-bottom: 4rem;
     }
-    .post-meta {
+
+    .post-meta 
+    {
       margin-bottom: 20px;
       color: #999;
       font-size: 1.5rem;
@@ -315,6 +371,12 @@ main{
 }
 
 
+
+/* ------------------- Plugins ------------------- */
+
+
+
+.syntaxhighlighter{}
 
 
 

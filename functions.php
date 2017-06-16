@@ -1,4 +1,11 @@
 <?php
+
+//define('WP_HOME','http://mmikael.dev');
+//define('WP_SITEURL','http://mmikael.dev'); 
+
+update_option( 'siteurl', 'http://mynotes.dev' );
+update_option( 'home', 'http://mynotes.dev' );
+
 /* --------------------------- Ing --------------------------- */
 
 

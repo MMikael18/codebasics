@@ -3,7 +3,7 @@
 
 'use strict';
 
-const  
+const 
 dir = { // source and build folders
   src         : '/var/www/wp_mmikael/wp-content/themes/codebasics/app/',
   build       : '/var/www/wp_mmikael/wp-content/themes/codebasics/'
