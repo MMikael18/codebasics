@@ -5,7 +5,7 @@
 	endif;
 ?>
 <header id="post-header" style="<?php echo $thumbnail ?>">
-	<h1 id="page-title">Brewed Bytes & Coffee</h1>
+	<h1 id="page-title">Recap notes</h1>
 	<article id="post-header-page">
 		<div id="post-head-content">				
 			<?php the_content(); ?>
