@@ -9,7 +9,7 @@
 	<article id="post-header-page">
 		<div id="post-head-content">				
 			<?php the_content(); ?>
-			<p class="post-meta"><?php the_date(); ?> by <a href="#"><?php the_author(); ?></a></p>
+			<p class="post-meta"><?php the_date(); ?> by <a href="//twitter.com/MMikael_18"><?php the_author(); ?></a></p>
 		</div>
 		<div id="header-post-button"></div>
 	</article><!-- /.blog-post -->
