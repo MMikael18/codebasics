@@ -1,33 +1,6 @@
 
 
-
-// ------------------- bootstrap variables -------------------
-
-
-
-$grid-columns:      12;
-$grid-gutter-width-base: 30px;
-$grid-gutter-widths: (
-  xs: $grid-gutter-width-base, // 30px
-  sm: $grid-gutter-width-base, // 30px
-  md: $grid-gutter-width-base, // 30px
-  lg: $grid-gutter-width-base, // 30px
-  xl: $grid-gutter-width-base  // 30px
-);
-$container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1540px
-);
-$grid-breakpoints: (
-  xs: 0,      // Extra small screen / phone
-  sm: 576px,  // Small screen / phone
-  md: 768px,  // Medium screen / tablet
-  lg: 992px,  // Large screen / desktop
-  xl: 1200px  // Extra large screen / wide desktop
-);
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../scss/css/variables';
 @import '../../scss/css/post_lister.scss';
 
 

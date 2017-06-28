@@ -5,8 +5,8 @@
 
 const 
 dir = { // source and build folders
-  src         : '/var/www/wp_mmikael/wp-content/themes/codebasics/app/',
-  build       : '/var/www/wp_mmikael/wp-content/themes/codebasics/'
+  src         : '/mnt/c/www/recapnotes.com/wp-content/themes/codebasics/app/',
+  build       : '/mnt/c/www/recapnotes.com/wp-content/themes/codebasics/'
 }, // Gulp and plugins
 gulp          = require('gulp'),
 gutil         = require('gulp-util'),

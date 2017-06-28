@@ -1,14 +1,50 @@
+@import '../../scss/css/variables';
+
 $z-bottomlink: 10;
 $z-toplink: 20;
 
 $item-margin: 15px;
 
-.post-cards {
-    display: flex;
-    //flex-wrap: wrap;
+/* Small devices (tablets, 768px and up) */
+@media (min-width: map-get($grid-breakpoints, sm)) {
+    .post-cards 
+    {
+        display: block;
+        .post-column 
+        {
+            width: 100%;
+        }    
+    }
+}
 
-    .post-column {
-        width: 25%;
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: map-get($grid-breakpoints, md) ) {
+    .post-cards 
+    {
+        display: block;
+        .post-column 
+        {
+            width: 100%;
+        }    
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: map-get($grid-breakpoints, lg) ) {
+    .post-cards 
+    {
+        display: flex;
+        .post-column 
+        {
+            width: 25%;
+        }    
+    }
+}
+
+.post-cards {
+    
+    .post-column 
+    {
     }
 
     .pl-li {
