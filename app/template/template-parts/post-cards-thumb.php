@@ -13,14 +13,12 @@ if(!empty($thumb_url)){
 
 echo "<article class='pl-li'>
         <div class='pl-button-top'>$cath</div>
-        <div class='pl-cont-top'>
-            <h3>$title</h3>
-            $date
-        </div>
+        <h3 class='pl-title'>$title </h3>
+        <span class='pl-date'>$date</span>
         $thumb
-        <div class='pl-cont-bottom'>
-            <p>$content</p>
-        </div>
+        <p class='pl-content'>
+            $content
+        </p>
         <div class='pl-button-bottom'>$tags</div>
         <a href=$url></a>
     </article>";

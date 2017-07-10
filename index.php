@@ -25,7 +25,7 @@
 		</div>
 	</div>
 
-	<div class="container">	
+	<div class="container">
 		<div class="row">
 			<div class="col-sm-8">
 
@@ -38,7 +38,7 @@
 					'post_type' => 'post',
 					'category_name' => $nowcat,
 					'tag' => $tag,
-					'posts_per_page' => 10, 
+					'posts_per_page' => 5, 
 					'paged' => $paged,
 					'offset' => 0
 				);

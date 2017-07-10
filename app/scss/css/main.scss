@@ -49,7 +49,6 @@ $z-contentmain: 5;
 h1, h2, h3, h4, h5, h6 
 {
   margin-bottom: .5em;
-  font-weight: 400;
   color: #333;
 
   a
@@ -73,7 +72,6 @@ html
   body
   {
       font-size: 14pt;
-      font-weight: 300;
       display: flex;
       flex-direction: column;
       height: 100%;
@@ -101,69 +99,150 @@ main
 {
   color: #fff;
   margin: 30px 0 0 30px;
-  font-size: 4em;
   position: absolute;
   font-family: 'Monoton', cursive;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: map-get($grid-breakpoints, sm)) {
+    #page-title
+    {
+      font-size: 2em;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: map-get($grid-breakpoints, md) ) {
+    #page-title
+    {
+      font-size: 3em;
+    }    
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: map-get($grid-breakpoints, lg) ) {
+    #page-title
+    {
+      font-size: 4em;
+    }    
 }
 
 /* post-header.php */
 #post-header
 {
   background-size: cover;
-  height: 150px;
   overflow: hidden;
   transition: height 1s ease;
+  height: 150px;
 
-  &.openOut
-  {
-    height: 500px;
-  }
-
-  #post-header-page 
-  {
-    background-color: white;
-    padding: 25px 50px;
-    -webkit-transform: rotate(17deg);
-    transform: rotate(-17deg);
-    top: 200px;
-    position: relative;
-    width: 1266px;
-    margin: 15px auto;
-    height: 320px;
-    overflow: hidden;
-    transition: transform 1s ease, top 500ms ease-out;
-    
-    &.rollOut
+    &.openOut
     {
-      -webkit-transform: rotate(0deg)!important;
-      transform: rotate(0deg)!important;
-      top: 120px!important;
+      #post-header-page 
+      {
+        opacity: 1;
+      }
     }
 
-    #post-head-content
+    #post-header-page 
     {
+      position: relative;
+      background-color: white;
+      transition: opacity 1s ease;
+      opacity: .5;
+
+      #header-post-button
+      {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        cursor: pointer;
+      }
+    }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (max-width: map-get($grid-breakpoints, md)) {
+
+  #post-header
+  {
+    &.openOut
+    {
+      height: auto;
+    }
+
+    #post-header-page 
+    {
+      margin-top: 100px;
+      margin-bottom: 25px;
+      padding: 25px;
+
+      #header-post-button
+      {
+        border-top: 50px solid #74d478;
+        border-left: 50px solid transparent;;
+      }
+    }
+
+  }
+
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: map-get($grid-breakpoints, md)) {
+  #post-header
+  {
+
+    &.openOut
+    {
+      height: 500px;
+    } 
+    #post-header-page 
+    {
+      padding: 25px 50px;
+      -webkit-transform: rotate(17deg);
+      transform: rotate(-17deg);
+      top: 200px;
+      position: relative;
+      width: 1266px;
+      margin: 15px auto;
+      height: 320px;
+      overflow: hidden;
+      transition: transform 1s ease, top 500ms ease-out;
       
-    }
+      &.rollOut
+      {
+        -webkit-transform: rotate(0deg)!important;
+        transform: rotate(0deg)!important;
+        top: 120px!important;
+      }
 
-    #header-post-button
-    {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 0;
-      height: 0;
-      border-top: 100px solid #74d478;
-      border-left: 100px solid transparent;
-      cursor: pointer;
-    }
+      #post-head-content
+      {}
 
+      #header-post-button
+      {
+        border-top: 100px solid #74d478;
+        border-left: 100px solid transparent;;
+      }
+
+    }
   }
-    
-
 }
 
 
 /* Main navigation */
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: map-get($grid-breakpoints, md) ) {
+
+  #top-menu ul
+  {
+     display: flex;
+  }
+
+}
+
 #top-menu 
 {
   text-align: center;
@@ -178,8 +257,7 @@ main
     {
       margin: 0;
       padding: 0;
-      list-style: none;
-      display: flex;
+      list-style: none;     
 
       li 
       {
