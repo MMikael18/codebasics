@@ -407,6 +407,35 @@ main
       font-size: 4rem;
     }
 
+    .img-look-thum{
+        border: solid 1px #ccc;
+        padding: 15px;
+
+        img{
+          width: 100%;
+          height: auto;
+        }
+    }
+
+    @media (min-width: map-get($grid-breakpoints, lg) ) {
+      .img-look-thum{          
+          float: right;
+          width: 45%;
+          overflow:  hidden;
+          margin-left: 45px;
+          margin-bottom: 15px;
+      }
+    }
+
+    @media (max-width: map-get($grid-breakpoints, lg) ) {
+      .img-look-thum{
+        float: none;
+        margin-bottom: 15px;
+
+        
+      }
+    }
+
     > p
     {
       margin-bottom: 4rem;
