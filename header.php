@@ -14,6 +14,7 @@
       $twitter_desc = $post->post_excerpt;
       if(empty($twitter_desc)){
         $twitter_desc = substr(strip_tags (strip_shortcodes($post->post_content)),0,110);
+        $twitter_desc = str_replace("&nbsp;", ' ', $twitter_desc);
         $twitter_desc = wp_trim_excerpt(trim(preg_replace('!\s+!', ' ', $twitter_desc)));
       }
 
