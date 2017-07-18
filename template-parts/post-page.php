@@ -12,5 +12,4 @@
 	<?php endif; ?>
  	<?php the_content(); ?>
 	<p class="post-meta"><?php the_date(); ?> by <a href="//twitter.com/MMikael_18"><?php the_author(); ?></a></p>
-
 </article><!-- /.blog-post -->
