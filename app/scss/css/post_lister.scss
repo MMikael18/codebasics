@@ -60,6 +60,18 @@ $item-margin: 15px;
             width: 100%;
             padding-bottom: 50%; 
             background-size: cover;
+            position: relative;
+
+            &::before{
+                content: " ";
+                background: linear-gradient(#4c4c4c 0%, #131313 100%);
+                opacity: .5;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+            }
         }
 
         .thumb-empty{
