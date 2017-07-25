@@ -55,7 +55,97 @@ $item-margin: 15px;
         margin-bottom: $item-margin;
         background-size: cover;
         background-color: white;
-        padding: 60px 25px 25px 25px;
+
+        .thumb {
+            width: 100%;
+            padding-bottom: 50%; 
+            background-size: cover;
+        }
+
+        .thumb-empty{
+            height: 45px;
+            width: 100%;
+        }
+
+        .pl-button-top {
+            position: absolute;          
+            top: 20px;
+            left: 0;
+            white-space: nowrap;
+            display: inline-block;
+            width: 100%;
+            text-transform: uppercase;
+            
+
+            a {
+                position: relative;
+                z-index: $z-toplink;
+                font-size: .8em;
+                padding: 10px 20px;
+                color: #cccccc;
+                background-color: white;
+
+                &:hover {
+                    text-decoration: none;
+                }
+
+            }
+            a:hover{
+                color: white;
+                background-color: #cccccc;
+                text-decoration: none;                
+            }
+
+            .pl-com{
+                float: right;
+                margin-right: 20px;
+                position: relative;
+
+                span {
+                    background-color: #ccc;
+                    border-radius: 100%;
+                    display: inline-block;
+                    width: 26px;
+                    height: 26px;
+                    text-align: center;
+                    line-height: 27px;
+                    font-size: 14px;
+                    font-weight: bolder;
+                    position: relative;
+                    z-index: 2;
+                }
+
+                &::after {
+                    content: " ";
+                    z-index: 1;
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    border-right: 10px solid transparent;
+                    border-bottom: 13px solid #ccc;
+                    position: absolute;
+                    bottom: -1px;
+                    right: -4px;
+                    transform: rotate(22deg);
+                }
+            }
+        }
+
+        .pl-content{
+            padding: 20px;
+
+            .pl-tags a{
+                position: relative;
+                z-index: $z-toplink;
+                padding: 0 5px;
+                color: #cccccc;
+            }
+            .pl-tags a:hover{
+                color: white;
+                background-color: #cccccc;
+                text-decoration: none;                
+            }
+        }
 
         > a {
             position: absolute;
@@ -65,28 +155,8 @@ $item-margin: 15px;
             left: 0; 
             right: 0;            
         }
-        
-        .pl-button-top {
-            position: absolute;          
-            top: 0;
-            padding-top: 20px;
-            white-space: nowrap;
-            display: inline-block;
-            width: 100%;
-            text-transform: uppercase;
+/*
 
-            a {
-                position: relative;
-                z-index: $z-toplink;
-                font-size: .8em;
-                color: #cccccc;
-
-                &:hover {
-                    text-decoration: none;
-                }
-
-            }
-        }
 
         h3.pl-title {
             margin-bottom: 0;  
@@ -97,17 +167,6 @@ $item-margin: 15px;
             color: #ccc;
             margin-bottom: 10px;
             display: block;
-        }
-
-        .thumb {
-            margin-bottom: 20px;
-            width: 100%;
-            padding-bottom: 50%; 
-            background-size: cover;
-        }
-
-        .pl-content{
-            margin-bottom: 25px;
         }
 
         .pl-button-bottom {
@@ -129,21 +188,8 @@ $item-margin: 15px;
                 }
 
             }          
-        }        
-
-/*
-
-
-
-
-        .pl-cont-bottom {
-            display: block;
-            padding: 0px 40px 90px 40px;
-            min-height: 120px;
-        }
-        
-
-    */
+        } 
+        */
         
     }
 }

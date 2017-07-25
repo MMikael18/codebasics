@@ -7,19 +7,22 @@ $tags = cbTemp::get_tags_links();
 $cath = cbTemp::get_categories_links();
 $thumb_url = get_the_post_thumbnail_url(get_the_ID(), 'medium_large' ); 
 $thumb = "";
+$comment_numper = get_comments_number();
 if(!empty($thumb_url)){
     $thumb = "<div class='thumb' style='background-image:url($thumb_url)'></div>";
+}else{
+    $thumb = "<div class='thumb-empty'></div>";
 }
 
 echo "<article class='pl-li'>
-        <div class='pl-button-top'>$cath</div>
-        <h3 class='pl-title'>$title </h3>
-        <span class='pl-date'>$date</span>
         $thumb
-        <p class='pl-content'>
-            $content
-        </p>
-        <div class='pl-button-bottom'>$tags</div>
+        <div class='pl-button-top'>$cath <span class='pl-com'><span>$comment_numper</span></span></div>
+        <div class='pl-content'>
+            <h3>$title </h3>
+            <span>$date</span>        
+            <p>$content</p>
+            <div class='pl-tags'>$tags</div>
+        </div>
         <a href=$url></a>
     </article>";
 
