@@ -1,5 +1,3 @@
-<?php php_file(); ?>
-
 <?php if ( post_password_required() ) {
 	return;
 } ?>

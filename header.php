@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
     <?php wp_head();?>
-    <?php    
+    <?php
       global $post;
 
       $twitter_url    = get_permalink();
@@ -42,20 +42,17 @@
     ?>
   </head>
 
-  <body>
+  <?php 
+    $thumbnail = "background-image: url(" . get_header_image() . ");";
+    //cbTemp::sitelogo();                
+    //cbTemp::basesearch();
+  ?>
 
-    <header id="site-header">
-      <div class="container">  
-         	<div class="row">
-		        <div class="col-sm-12" id="header-content">
-              <?php 
-                //cbTemp::sitelogo();                
-                //cbTemp::basesearch();
-              ?>
-            </div>          
-          </div>
-      </div>
-    </header>
+  <body style="<?php echo $thumbnail ?>">
+  <header id="site-header" >
+    <h1 id="page-title"><?php echo get_bloginfo( 'name' ); ?></h1>
+  </header>
+  <?php get_template_part( 'template-parts/nav', 'main' ); ?>
+ 
 
-    <main>
-      
+  <main>    

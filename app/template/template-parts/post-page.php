@@ -1,4 +1,3 @@
-<?php php_file(); ?>
 <article class="post-page">
 	<a href="/" id="home-link">Home</a>
 	

@@ -1,4 +1,6 @@
 <?php
+die("off");
+
 $url = get_permalink();
 $title = get_the_title();
 $content = get_the_excerpt();

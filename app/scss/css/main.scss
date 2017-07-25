@@ -88,7 +88,8 @@ html
       height: 100%;
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background-color: #8193a0;
+      background-size: cover;
+      background-attachment: fixed;
   }
 }
 
@@ -99,7 +100,8 @@ header#site-header, footer#site-footer
 
 main
 {
-   flex: 1 0 auto;
+  background-color: #8193a0;
+  flex: 1 0 auto;
 }
 
 
@@ -110,13 +112,23 @@ main
 
 
 
-#page-title
+/* post-header.php */
+header#site-header
 {
-  color: #fff;
-  margin: 30px 0 0 30px;
-  position: absolute;
-  font-family: 'Monoton', cursive;
+  position: relative;
+  height: 250px;
+  
+  #page-title
+  {
+    color: #fff;
+    margin: 30px 0 0 30px;
+    position: absolute;
+    font-family: 'Monoton', cursive;
+  }
+
 }
+
+
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: map-get($grid-breakpoints, sm)) {
@@ -142,108 +154,10 @@ main
     }    
 }
 
-/* post-header.php */
-#post-header
-{
-  background-size: cover;
-  overflow: hidden;
-  transition: height 1s ease;
-  height: 150px;
 
-    &.openOut
-    {
-      #post-header-page 
-      {
-        opacity: 1;
-      }
-    }
-
-    #post-header-page 
-    {
-      position: relative;
-      background-color: white;
-      transition: opacity 1s ease;
-      opacity: .5;
-
-      #header-post-button
-      {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 0;
-        height: 0;
-        cursor: pointer;
-      }
-    }
-}
 
 /* Small devices (tablets, 768px and up) */
-@media (max-width: map-get($grid-breakpoints, md)) {
-
-  #post-header
-  {
-    &.openOut
-    {
-      height: auto;
-    }
-
-    #post-header-page 
-    {
-      margin-top: 100px;
-      margin-bottom: 25px;
-      padding: 25px;
-
-      #header-post-button
-      {
-        border-top: 50px solid #74d478;
-        border-left: 50px solid transparent;;
-      }
-    }
-
-  }
-
-}
-/* Small devices (tablets, 768px and up) */
-@media (min-width: map-get($grid-breakpoints, md)) {
-  #post-header
-  {
-
-    &.openOut
-    {
-      height: 500px;
-    } 
-    #post-header-page 
-    {
-      padding: 25px 50px;
-      -webkit-transform: rotate(17deg);
-      transform: rotate(-17deg);
-      top: 200px;
-      position: relative;
-      width: 1266px;
-      margin: 15px auto;
-      height: 320px;
-      overflow: hidden;
-      transition: transform 1s ease, top 500ms ease-out;
-      
-      &.rollOut
-      {
-        -webkit-transform: rotate(0deg)!important;
-        transform: rotate(0deg)!important;
-        top: 120px!important;
-      }
-
-      #post-head-content
-      {}
-
-      #header-post-button
-      {
-        border-top: 100px solid #74d478;
-        border-left: 100px solid transparent;;
-      }
-
-    }
-  }
-}
+@media (max-width: map-get($grid-breakpoints, md)) {}
 
 
 
@@ -321,6 +235,55 @@ main
   }
 }
 
+#tag-menu{
+  text-align: center;
+  background-color: #35414a;
+}
+
+
+nav.tag-nav
+{
+  display: inline-block;
+  color: white;
+
+  ul
+  {
+    margin: 0 auto;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li
+    {
+      a
+      {
+        color: white;
+        padding: 11px;
+        display: block;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      &.active
+      {
+        background-color: #556a6d;
+      }
+
+      &.active:hover
+      {
+        background-color: #45545f;
+      }
+
+      &:hover
+      {
+        background-color: #45545f;
+      }
+
+    }          
+  }
+}  
+
 
 
 
@@ -333,64 +296,6 @@ main
 main
 {
   z-index: $z-contentmain;
-
-  .tag-nav
-  {
-    background-color: #35414a;
-
-    #tag-content
-    {
-      text-align: center;
-
-      nav
-      {
-        display: inline-block;
-
-        ul
-        {
-          margin: 0 auto;
-          display: flex;
-          list-style: none;
-          margin: 0;
-          padding: 0;
-
-          li
-          {
-
-            a
-            {
-              color: white;
-              padding: 11px;
-              display: block;
-              text-decoration: none;
-            }
-
-            &.active
-            {
-              background-color: #556a6d;
-            }
-
-            &.active:hover
-            {
-              background-color: #45545f;
-            }
-
-            &:hover
-            {
-              background-color: #45545f;
-            }
-
-          }          
-        }
-      }  
-    }
-  }
-
-  section.upper
-  {
-    position: relative;
-    background-color: #202930;
-  }
 
   section.botter
   {
@@ -414,6 +319,28 @@ main
       align-items: stretch;
   }
 
+
+
+/* *********************************************** */
+// PAGENATION
+/* *********************************************** */
+
+
+
+.prev-next-posts{
+  display: flex;
+  justify-content: space-between;
+
+  .prev-posts-link, .next-posts-link {
+    
+    a{
+      color: #35414a;
+    }
+    
+  }
+
+}
+            
 
 
 /* *********************************************** */

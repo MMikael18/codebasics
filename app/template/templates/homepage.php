@@ -1,9 +1,8 @@
 <?php 
 /*
-Template Name: Home page
-Template Post Type: post, page, event
+Tem plate Name: Home page
+Tem plate Post Type: post, page, event
 */
-// Page code here...
 ?>
 <?php get_header(); ?>
 
@@ -12,7 +11,7 @@ Template Post Type: post, page, event
 <section class="upper">
 	<?php 
 		if ( have_posts() ) : while ( have_posts() ) : the_post();
-			get_template_part( '/template-parts/post-header', get_post_format() );  
+			//get_template_part( '/template-parts/post-header', get_post_format() );  
 		endwhile; endif; 
 	?>
 </section>

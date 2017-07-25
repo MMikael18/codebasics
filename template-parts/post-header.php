@@ -1,4 +1,3 @@
-<?php php_file(); ?>
 <?php 
 	if (has_post_thumbnail() ): 
 		$thumbnail = "background-image: url(" . get_the_post_thumbnail_url() . ");";

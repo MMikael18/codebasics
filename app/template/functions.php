@@ -10,9 +10,28 @@ require get_template_directory() . '/inc/template-utils.php';
 
 
 
+
+/* ************************************************************************ */
+/* ----------------------------- Customizer   ----------------------------- */
+/* ************************************************************************ */
+
+// add_action('customize_register','mytheme_customizer_options');
+// function mytheme_customizer_options( $wp_customize ) {
+// 	$wp_customize->get_section('header_image')->title = __( 'Featured Image' );
+// }
+
+
+
+add_theme_support( 'custom-header' );
+
+
+
 /* ************************************************************************ */
 /* ----------------------------- Recaptcha ----------------------------- */
 /* ************************************************************************ */
+
+
+
 
 function no_captcha_recaptcha_menu() {
 	add_menu_page("reCapatcha", "reCaptcha", "manage_options", "recaptcha-options", "recaptcha_options_page", "", 100);
@@ -219,18 +238,18 @@ register_nav_menus( array(
 
 
 
-function theme_cb_sidebars() {
-    register_sidebar( array(
-        'name' => __( 'Post Sidebar', 'sidepar-post' ),
-        'id' => 'sidepar-post',
-        'description' => __( 'Widgets in this area will be shown on all posts.', 'sidepar-post' ),
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-	'after_widget'  => '</div>',
-	'before_title'  => '<h4 class="widgettitle">',
-	'after_title'   => '</h4>',
-    ));
-}
-add_action( 'widgets_init', 'theme_cb_sidebars' );
+// function theme_cb_sidebars() {
+//     register_sidebar( array(
+//         'name' => __( 'Post Sidebar', 'sidepar-post' ),
+//         'id' => 'sidepar-post',
+//         'description' => __( 'Widgets in this area will be shown on all posts.', 'sidepar-post' ),
+//         'before_widget' => '<div id="%1$s" class="widget %2$s">',
+// 	'after_widget'  => '</div>',
+// 	'before_title'  => '<h4 class="widgettitle">',
+// 	'after_title'   => '</h4>',
+//     ));
+// }
+// add_action( 'widgets_init', 'theme_cb_sidebars' );
 
 
 
@@ -240,18 +259,18 @@ add_action( 'widgets_init', 'theme_cb_sidebars' );
 
 
 
-function row_shortcode( $atts, $content = null ) {
-	return "<div class='row'>".do_shortcode($content)."</div>";
-}
-function colum_shortcode( $atts, $content = null ) {
-	$a = shortcode_atts( array(
-        'num' => '1',
-    ), $atts );
-    $grid = "col-sm-".$a['num'];
-    return "<div class='$grid'>".do_shortcode($content)."</div>";
-}
-add_shortcode( 'row', 'row_shortcode' );
-add_shortcode( 'col', 'colum_shortcode' );
+// function row_shortcode( $atts, $content = null ) {
+// 	return "<div class='row'>".do_shortcode($content)."</div>";
+// }
+// function colum_shortcode( $atts, $content = null ) {
+// 	$a = shortcode_atts( array(
+//         'num' => '1',
+//     ), $atts );
+//     $grid = "col-sm-".$a['num'];
+//     return "<div class='$grid'>".do_shortcode($content)."</div>";
+// }
+// add_shortcode( 'row', 'row_shortcode' );
+// add_shortcode( 'col', 'colum_shortcode' );
 
 
 ?>

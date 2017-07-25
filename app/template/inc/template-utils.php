@@ -2,17 +2,17 @@
 
 class cbTemp {
 
-	public static function sitelogo() {
-		if ( function_exists( 'the_custom_logo' ) ) {    
-			wrapit("the_custom_logo","<div id='cb-sitelogo'>","</div>");
-		}
-	}
+	// public static function sitelogo() {
+	// 	if ( function_exists( 'the_custom_logo' ) ) {    
+	// 		wrapit("the_custom_logo","<div id='cb-sitelogo'>","</div>");
+	// 	}
+	// }
 
-	public static function basesearch() {
-		if ( function_exists( 'get_search_form' ) ) {    
-			wrapit("get_search_form","<div class='cb-search'>","</div>");
-		}
-	}
+	// public static function basesearch() {
+	// 	if ( function_exists( 'get_search_form' ) ) {    
+	// 		wrapit("get_search_form","<div class='cb-search'>","</div>");
+	// 	}
+	// }
 
 
 	/* --- Get Posts Thing --- */
@@ -59,13 +59,32 @@ class cbTemp {
 
 	/* --- Get Posts Thing --- */
 
-	public static function tages_multiselect() {
+	public static function get_tags_menu() {
+			// echo var_dump(get_option('permalink_structure'));
+			// /%postname%/
+		$tags = get_tags( array(				
+			'orderby'    => 'name',
+			'show_count' => true
+		));
+
+		echo "<ul>";
+
+		if ( ! empty( $tags ) ) {
+			foreach( $tags as $tag ) {
+				echo "<li><a href=" . esc_url( get_category_link( $tag->term_id ) ) . ">" . $tag->name . "</a></li>";
+			}
+		}
+		echo "</ul>";
+	}
+
+/*
+	public static function old_tages_multiselect() {
 		$category = get_queried_object();
 		$category = $category->name;
 
 		$query_name = "tags";
 
-		/* Select multiple tags */
+		// Select multiple tags 
 		$qString = ($_GET[$query_name]) ? $_GET[$query_name] : "";
 		$qArray = explode("+", $qString);
 
@@ -116,6 +135,8 @@ class cbTemp {
 		}
 		return $qString;
 	}
+	*/
+
 
 	public static function tags_links() {
 		echo cbTemp::get_tags_links();		
@@ -140,10 +161,10 @@ class cbTemp {
 //$cpt = new cbTemp();
 
 
-function wrapit($call,$s,$e) {
-    echo $s;
-	call_user_func($call);
-    echo $e;
-}
+// function wrapit($call,$s,$e) {
+//     echo $s;
+// 	call_user_func($call);
+//     echo $e;
+// }
 
 ?>
