@@ -296,6 +296,7 @@ nav.tag-nav
 main
 {
   z-index: $z-contentmain;
+  overflow: hidden;
 
   section.botter
   {
