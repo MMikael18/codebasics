@@ -2,6 +2,11 @@
 
 class cbTemp {
 
+
+	public static function get_textdomain() {
+		return "codebasics";		
+	}
+	
 	// public static function sitelogo() {
 	// 	if ( function_exists( 'the_custom_logo' ) ) {    
 	// 		wrapit("the_custom_logo","<div id='cb-sitelogo'>","</div>");

@@ -443,9 +443,7 @@ main
     width: 100%;
   }
 
-  .form-submit{
-    display: none;
-  }
+
 
   .g-submit{
     margin-top: 15px;
@@ -458,7 +456,9 @@ main
 /* *********************************************** */
 
 
-.syntaxhighlighter{}
+ [id*="highlighter"].syntaxhighlighter{
+  font-size: .8em!important;
+}
 
 
 
