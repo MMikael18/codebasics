@@ -5,9 +5,12 @@
 
 
 
-require get_template_directory() . '/inc/devtools.php';
-require get_template_directory() . '/inc/template-utils.php';
+require_once  get_template_directory() . '/inc/devtools.php';
+require_once  get_template_directory() . '/inc/template-utils.php';
+//require_once  get_template_directory() . '/inc/type-simularpages.php';
 
+//new SimularPages_Post_Type;
+//new SimularPages_List_Table;
 
 
 

@@ -126,6 +126,35 @@ header#site-header
     font-family: 'Monoton', cursive;
   }
 
+
+  ul#socialmedia-links{
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+    li{
+      padding: 5px;
+    }
+    a{
+      padding: 5px;
+      display: block;
+    }
+    a:hover svg{
+      opacity: 1;
+      transform: scale(1.5);
+    }
+    svg{
+      fill: white;
+      width: 25px;
+      height: 25px;
+      opacity: .5;      
+      transition: all 500ms; 
+    }
+  }
 }
 
 
