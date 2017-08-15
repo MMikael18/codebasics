@@ -22,6 +22,7 @@ function add_async_attribute($tag, $handle) {
 }
 add_filter('script_loader_tag', 'add_async_attribute', 10, 2);
 
+add_filter( 'jpeg_quality', create_function( '', 'return 75;' ) );
 
 /* ************************************************************************ */
 /* ----------------------------- Includes --------------------------------- */
