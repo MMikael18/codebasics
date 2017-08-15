@@ -10,7 +10,7 @@ function removeJqueryMigrate(&$scripts){
 }
 
 function add_async_attribute($tag, $handle) {
-   // add script handles to the array below
+   // add script handles to the array below wp_register_script
    $scripts_to_async = array('recaptcha');
    
    foreach($scripts_to_async as $async_script) {
@@ -234,9 +234,9 @@ add_filter( 'tiny_mce_before_init', 'set_formats' );
 
 
 function startwordpress_scripts() {
-    wp_enqueue_style('Quicksand', '//fonts.googleapis.com/css?family=Quicksand:300,400,500,700', false );
-    wp_enqueue_style('Roboto', '//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700', false );
-    wp_enqueue_style('Monoton', '//fonts.googleapis.com/css?family=Monoton|Roboto', false );
+    //wp_enqueue_style('Quicksand', '//fonts.googleapis.com/css?family=Quicksand:300,400,500,700', false );
+    //wp_enqueue_style('Roboto', '//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700', false );
+    //wp_enqueue_style('Monoton', '//fonts.googleapis.com/css?family=Monoton|Roboto', false );
     
     
     wp_enqueue_script('codejs', get_template_directory_uri() . '/js/scripts.js', '', '1', true );

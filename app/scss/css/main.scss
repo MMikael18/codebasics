@@ -1,4 +1,5 @@
 @import '../../scss/css/variables';
+@import '../../scss/css/fontface.scss';
 @import '../../scss/css/post_lister.scss';
 @import '../../scss/css/editor.scss';
 
@@ -87,7 +88,7 @@ html
       flex-direction: column;
       height: 100%;
       margin: 0;
-      font-family: 'Roboto', sans-serif;
+      //font-family: 'Quicksand', sans-serif;
       background-size: cover;
       background-attachment: fixed;
   }
