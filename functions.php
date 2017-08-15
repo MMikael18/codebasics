@@ -1,4 +1,28 @@
 <?php
+
+/* No JQ Migrate - http://subinsb.com/remove-jquery-migrate-in-wp-blog */
+add_filter( 'wp_default_scripts', 'removeJqueryMigrate' );
+function removeJqueryMigrate(&$scripts){
+ if(!is_admin()){
+  $scripts->remove('jquery');
+  //$scripts->add('jquery', false, array('jquery-core'), '1.10.2');
+ }
+}
+
+function add_async_attribute($tag, $handle) {
+   // add script handles to the array below
+   $scripts_to_async = array('recaptcha');
+   
+   foreach($scripts_to_async as $async_script) {
+      if ($async_script === $handle) {
+         return str_replace(' src', ' async="async" src', $tag);
+      }
+   }
+   return $tag;
+}
+add_filter('script_loader_tag', 'add_async_attribute', 10, 2);
+
+
 /* ************************************************************************ */
 /* ----------------------------- Includes --------------------------------- */
 /* ************************************************************************ */
@@ -34,7 +58,6 @@ add_theme_support( 'custom-header' );
 /* ************************************************************************ */
 
 // https://perishablepress.com/integrating-google-no-captcha-recaptcha-wordpress-forms/
-
 class reCaptcha_Options_Page {
 
 	private $text_domain = "reCaptcha_textdomain";
@@ -112,7 +135,7 @@ class reCaptcha_Options_Page {
     function display_captcha_secret_key_element() {
 		?> <input type="text" name="captcha_secret_key" style="width:95%"  id="captcha_secret_key" value="<?php echo get_option("captcha_secret_key"); ?>" /> <?php
     }
-    
+
     // ------- Front end -------
     function frontend_recaptcha_script() {
         wp_register_script("recaptcha", "https://www.google.com/recaptcha/api.js");
