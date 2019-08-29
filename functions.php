@@ -180,7 +180,7 @@ new reCaptcha_Options_Page;
 
 
 function theme_add_editor_styles() {
-    add_editor_style( 'css/editor.css' );
+    add_editor_style( 'editor.css' );
 }
 add_action( 'admin_init', 'theme_add_editor_styles' );
 
@@ -236,12 +236,8 @@ add_filter( 'tiny_mce_before_init', 'set_formats' );
 
 function startwordpress_scripts() {
     //wp_enqueue_style('Quicksand', '//fonts.googleapis.com/css?family=Quicksand:300,400,500,700', false );
-    //wp_enqueue_style('Roboto', '//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700', false );
-    //wp_enqueue_style('Monoton', '//fonts.googleapis.com/css?family=Monoton|Roboto', false );
-    
-    
     wp_enqueue_script('codejs', get_template_directory_uri() . '/js/scripts.js', '', '1', true );
-    wp_enqueue_style ('blog', get_template_directory_uri() . '/css/main.css' );
+    wp_enqueue_style ('blog', get_template_directory_uri() . '/style.css' );
 }
 add_action( 'wp_enqueue_scripts', 'startwordpress_scripts' );
 

@@ -2,7 +2,6 @@
 // ------------------- bootstrap variables -------------------
 
 
-
 $grid-columns:      12;
 $grid-gutter-width-base: 30px;
 $grid-gutter-widths: (
@@ -26,4 +25,7 @@ $grid-breakpoints: (
   xl: 1200px  // Extra large screen / wide desktop
 );
 
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+$secondary-color: rgba(255, 0, 60, 1);
+$dark-color: #1e1e1e;
+
+

@@ -44,7 +44,7 @@ gulp.task('images', () => {
 
 // SCSS
 var css = {
-  src         : dir.src + 'scss/**/*.scss',
+  src         : dir.src + 'scss/*',
   watch       : dir.src + 'scss/**/*',
   build       : dir.build,
   sassOpts: {
@@ -62,13 +62,16 @@ var css = {
       browsers: ['last 2 versions', '> 2%']
     }),
     require('css-mqpacker'),
-    require('cssnano')
+    require('cssnano'),
+    
   ]
 };
+
 gulp.task('css', ['images'], () => {
   return gulp.src(css.src)
-    .pipe(sass(css.sassOpts))    
+    .pipe(sass(css.sassOpts))      
     .pipe(postcss(css.processors))    
+    //.pipe(concat('style.css'))
     .pipe(gulp.dest(css.build));
 });
 

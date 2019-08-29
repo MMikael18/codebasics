@@ -1,7 +1,113 @@
+    
 /*!
 Theme Name: Code Basics
 Author: Matti Uusitalo
-Description: Nice base theme
+Description: My Personal Blogs Theme
 Version: 0.0.1
 Tags: bootstrap, mmikael
 */
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../node_modules/hamburgers/_sass/hamburgers/hamburgers';
+@import '../scss/main/variables';
+@import '../scss/main/navigation';
+@import '../scss/main/post_lister';
+
+/*
+*
+* HTML
+*
+*
+*/
+
+html
+{
+  height: 100%;
+} 
+body
+{
+    font-size: 14pt;
+    height: 100%;
+    margin: 0;
+    //background-color: #f4f4f4; 
+    background: rgba(255,255,255,1);    
+    background: radial-gradient(farthest-corner at 40px 40px, rgba(255,255,255,1) 0%, rgb(233, 240, 245) 100%);
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+// a
+// {
+//   color: $dark-color;
+//   transition: all .25s;
+//   transition-timing-function: ease-in;
+// }
+// a:hover
+// {
+//   color:  $secondary-color;
+// }
+
+/*
+*
+* components
+*
+*
+*/
+
+.c-3dhero
+{  
+  perspective: 5000px;
+  overflow: hidden;
+}
+.c-3dhero__content
+{  
+  animation: 10s rotate ease infinite;
+  width: 100vw;
+  height: 100vh;
+  max-height: 920px;
+  position: relative;
+  transform-style: preserve-3d;
+}
+.c-3d__leve_m1
+{
+  transform: rotateY(0deg) translateZ(-250px);
+}
+.c-3d__leve_00
+{
+  transform: rotateY(0deg) translateZ(0px);
+}
+.c-3d__leve_p1
+{
+  transform: rotateY(0deg) translateZ(250px);
+}
+
+// // animation
+@keyframes rotate {
+  0%  { -webkit-transform:  rotateX(0) rotateY(0) rotateZ(0); }
+  20%  { -webkit-transform:  rotateX(0) rotateY(0) rotateZ(0); }
+  40% { -webkit-transform:  rotateX(0) rotateY(-35deg) rotateZ(0);  }
+  80% { -webkit-transform:  rotateX(0) rotateY(35deg) rotateZ(0);  }
+  95% { -webkit-transform:  rotateX(0) rotateY(0) rotateZ(0);  }
+ }
+
+
+// C socialmedia links
+
+
+// C Gradient Text
+
+.c-gradient-text
+{
+  font-family: 'Raleway', sans-serif;
+  font-size: 8rem;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+  //background: -webkit-gradient(linear,left top,left bottom,from(#a4b357),to(#75890c));
+  background: linear-gradient(to bottom, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  /* text-shadow: 2px 2px red; */
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #75890c;
+}
+

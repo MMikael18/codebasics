@@ -2,12 +2,13 @@
 
 /* open the post header top to the page */
 
-/*
+
 $( document ).ready(function() {
-    $( "#header-post-button" ).bind( "click", function() {
-        $( "#post-header-page" ).toggleClass( "rollOut" );
-        $( "#post-header" ).toggleClass( "openOut" );
+    $( "[data-hamburger]" ).bind( "click", function() {
+        $(this).toggleClass( "is-active" );
+        $("[data-hamburger-target]").toggleClass( "is-active" );
+        
     });
 });
-*/
+
 

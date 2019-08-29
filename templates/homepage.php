@@ -21,7 +21,7 @@ Tem plate Post Type: post, page, event
 	<div class="container">
 		<div class="row">		
 			<div class="col-sm-12" id="tag-content">
-				<nav><?php //$tag = cbTemp::tages_multiselect(); ?></nav>
+				<nav><?php $tag = cbTemp::tages_multiselect(); ?></nav>
 			</div>
 		</div>
 	</div>	
