@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,500,700,800,900|Raleway:400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <!--link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,500,700,800,900|Raleway:400,500,600,700,800,900&display=swap" rel="stylesheet"-->
+    <link href="https://fonts.googleapis.com/css?family=Khula:300,400,600,700,800&display=swap" rel="stylesheet">
     <?php wp_head();?>
     <?php
       global $post;
@@ -54,7 +55,9 @@
   <!--?php echo get_bloginfo( 'name' ); ?-->
   <header class="c-3dhero" >
     <div class="c-3dhero__content c-3dhero__content--1">
-      <h2>Content Design</h2>
+
+      <h2 class="c-dia-title">Design</h2>
+      <span class="c-dia-bigtext">Content</span>
       <div class="c-3d__leve_m1">
         <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24"><path d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"/></svg>
       </div>
@@ -64,26 +67,35 @@
       <div class="c-3d__leve_p1">
         <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24"><path d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"/></svg>
       </div>      
+
     </div>
     <div class="c-3dhero__content c-3dhero__content--2">
-      <h2>User Experience & Design</h2>
-      <h3>UX</h3>
-      <h3>UI</h3>
+
+      <h2 class="c-dia-title">User Experience & Design</h2>
+      <span class="c-dia-bigtext">UX</span>
+      <span class="c-dia-bigtext">UI</span>
       <div class="c-3d__leve_p1">
         <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24"><path d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"/></svg>
       </div>      
+
     </div>
     <div class="c-3dhero__content c-3dhero__content--3">
-      <h2>Front-end development</h2>
+
+      <h2 class="c-dia-title">Development</h2>      
+      <span class="c-dia-bigtext">Front-end</span>
       <div class="c-3d__leve_p1">
         <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24"><path d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"/></svg>
       </div>
+
     </div>
     <div class="c-3dhero__content c-3dhero__content--4">
-      <h2>Back-End development</h2>
+
+      <h2 class="c-dia-title">Development</h2>
+      <span class="c-dia-bigtext">Back-end</span>
       <div class="c-3d__leve_p1">
         <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24"><path d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"/></svg>
       </div>
+
     </div>
   </header>
   
