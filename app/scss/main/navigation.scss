@@ -19,7 +19,7 @@
 .c-navigatio-container__left
 {
     z-index: 1;
-    background-color: $secondary-color; 
+    //background-color: $secondary-color; 
     position: fixed;
     right: 0;
     top: 32px;
@@ -41,7 +41,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    background-color: $dark-color;
+    //background-color: $dark-color;
     color: white;
     transition: all .5s;
     transition-timing-function: ease-in;
@@ -98,45 +98,3 @@ nav.c-main-navigation
         100%{background-position:50% 100%}
     }
 
-/*
-* SOS links
-*/
-
-.c-socialmedia-links
-{
-    position: absolute;
-    left: 5px;
-    bottom: 5px;
-    padding: 5px;
-    background-color: $secondary-color;    
-    transition: all .25s;    
-    transition-timing-function: ease-in;
-    ul
-    {
-        margin: 0;
-        padding: 0;
-        list-style: none;    
-        li
-        {
-            padding: 5px;
-        }
-        a
-        {
-            padding: 5px;
-            display: block;
-        }
-        a:hover svg{
-            transform: scale(1.5);
-        }
-        svg{
-            fill: white;
-            width: 25px;
-            height: 25px;
-            transition: all .5s;
-        }
-    }
-}
-.is-active .c-socialmedia-links{
-    transition-delay: .7s;
-    left: -55px;
-}

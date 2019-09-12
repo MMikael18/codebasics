@@ -25,7 +25,15 @@ $grid-breakpoints: (
   xl: 1200px  // Extra large screen / wide desktop
 );
 
-$secondary-color: rgba(255, 0, 60, 1);
-$title-color: rgb(64,82,114);
-$title-color-shadow: rgba(64,82,114, .3);
-$dark-color: #1e1e1e;
+$orange-color: #f4622e;
+$blue-dark:  #1e2d3f;
+$blue-light:  #2b3e50;
+
+$background_blue_dia1: linear-gradient(135deg, rgba(30,45,63,1) 0%, rgba(43,62,80,1) 100%);
+$background_blue_dia2: linear-gradient(45deg, rgba(43,62,80,1) 0%, rgba(30,45,63,1) 100%);
+$background_blue_dia3: linear-gradient(135deg, rgba(43,62,80,1) 0%, rgba(30,45,63,1) 100%);
+$background_blue_dia4: linear-gradient(45deg, rgba(30,45,63,1) 0%, rgba(43,62,80,1) 100%);
+
+// $title-color: rgb(64,82,114);
+// $title-color-shadow: rgba(64,82,114, .3);
+// $dark-color: #1e1e1e;
