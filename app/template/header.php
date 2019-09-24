@@ -52,24 +52,13 @@
   <body>      
   <?php //get_template_part( 'template-parts/nav', 'main' ); ?>
   <?php //echo get_bloginfo( 'name' ); ?>
-  <?php get_template_part( 'template-parts/sos', 'links' ); ?>
+  <?php //get_template_part( 'template-parts/sos', 'links' ); ?>
+  <sos-links></sos-links>
   <div class="l-orage_box">
     <span class="c-blog_title">ReCapNotes.com</span>    
   </div>
   <header class="c-hero-camere" >
-    <div class="c-hero-object c-hero-object--dia1">
-      <div class="c-hero-object__inner"></div>
-      <span class="c-text-logic">logic</span>
-    </div>
-    <div class="c-hero-object c-hero-object--dia2">      
-      <div class="c-hero-object__inner">dia 2</div>
-    </div>
-    <div class="c-hero-object c-hero-object--dia3">
-      <div class="c-hero-object__inner">dia 3</div>
-    </div>
-    <div class="c-hero-object c-hero-object--dia4"> 
-      <div class="c-hero-object__inner">dia 4</div>
-    </div>
+    
   </header>
   
  

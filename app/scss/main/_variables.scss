@@ -5,11 +5,11 @@
 $grid-columns:      12;
 $grid-gutter-width-base: 30px;
 $grid-gutter-widths: (
-  xs: $grid-gutter-width-base, // 30px
-  sm: $grid-gutter-width-base, // 30px
-  md: $grid-gutter-width-base, // 30px
-  lg: $grid-gutter-width-base, // 30px
-  xl: $grid-gutter-width-base  // 30px
+  xs: $grid-gutter-width-base,
+  sm: $grid-gutter-width-base,
+  md: $grid-gutter-width-base, 
+  lg: $grid-gutter-width-base,
+  xl: $grid-gutter-width-base
 );
 $container-max-widths: (
   sm: 540px,
@@ -27,12 +27,12 @@ $grid-breakpoints: (
 
 $orange-color: #f4622e;
 $blue-dark:  #1e2d3f;
-$blue-light:  #2b3e50;
+$blue-light:  #2a3d4f;
 
-$background_blue_dia1: linear-gradient(135deg, rgba(30,45,63,1) 0%, rgba(43,62,80,1) 100%);
-$background_blue_dia2: linear-gradient(45deg, rgba(43,62,80,1) 0%, rgba(30,45,63,1) 100%);
-$background_blue_dia3: linear-gradient(135deg, rgba(43,62,80,1) 0%, rgba(30,45,63,1) 100%);
-$background_blue_dia4: linear-gradient(45deg, rgba(30,45,63,1) 0%, rgba(43,62,80,1) 100%);
+$background_blue_dia1: linear-gradient(135deg, $blue-dark  25%, $blue-light 75%);
+$background_blue_dia2: linear-gradient(45deg,  $blue-light 25%, $blue-dark  75%);
+$background_blue_dia3: linear-gradient(135deg, $blue-light 25%, $blue-dark  75%);
+$background_blue_dia4: linear-gradient(45deg,  $blue-dark  25%, $blue-light 75%);
 
 // $title-color: rgb(64,82,114);
 // $title-color-shadow: rgba(64,82,114, .3);

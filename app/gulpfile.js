@@ -17,8 +17,11 @@ postcss       = require('gulp-postcss'),
 deporder      = require('gulp-deporder'),
 concat        = require('gulp-concat'),
 stripdebug    = require('gulp-strip-debug'),
-uglify        = require('gulp-uglify');
-
+//uglify        = require('gulp-uglify'),
+uglify        = require('gulp-uglify-es').default,
+babel         = require('gulp-babel'),
+browserify    = require('gulp-browserify'),
+plumber       = require('gulp-plumber');
 // PHP
 const php = {
   src           : dir.src + 'template/**/*.php',
@@ -69,6 +72,7 @@ var css = {
 
 gulp.task('css', ['images'], () => {
   return gulp.src(css.src)
+    .pipe(plumber())
     .pipe(sass(css.sassOpts))      
     .pipe(postcss(css.processors))    
     //.pipe(concat('style.css'))
@@ -77,16 +81,25 @@ gulp.task('css', ['images'], () => {
 
 // JavaScript
 const js = {
-  src         : dir.src + 'js/**/*',
+  src         : dir.src + 'js/app.js',
+  srcFull     : dir.src + 'js/**/*', // 
   build       : dir.build + 'js/',
   filename    : 'scripts.js'
 };
 gulp.task('js', () => {
     return gulp.src(js.src)
+    .pipe(plumber())    
+    .pipe(babel({
+      presets: ['@babel/preset-env']
+    }))
+    .pipe(browserify({
+      insertGlobals : true,
+      debug : !gutil.env.production
+    }))
     .pipe(deporder())
     .pipe(concat(js.filename))
     //.pipe(stripdebug())
-    .pipe(uglify())
+    .pipe(uglify())    
     .pipe(gulp.dest(js.build));
 });
 
@@ -98,7 +111,7 @@ gulp.task('watch', () => {
   gulp.watch(php.src, ['php']);       // page changes
   gulp.watch(images.src, ['images']); // image changes 
   gulp.watch(css.watch, ['css']);     // CSS changes
-  gulp.watch(js.src, ['js']);         // JavaScript main changes
+  gulp.watch(js.srcFull, ['js']);     // JavaScript main changes
 });
 
 // default task
