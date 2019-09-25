@@ -21,7 +21,20 @@ stripdebug    = require('gulp-strip-debug'),
 uglify        = require('gulp-uglify-es').default,
 babel         = require('gulp-babel'),
 browserify    = require('gulp-browserify'),
-plumber       = require('gulp-plumber');
+plumber       = require('gulp-plumber'),
+browserSync   = require('browser-sync').create();
+
+// Browser Sync
+gulp.task('browser-sync', () => {
+  browserSync.init({
+      open: false,
+      proxy: {
+        target: "dev.recapnotes.com", // can be [virtual host, sub-directory, localhost with port]
+        ws: true // enables websockets        
+      }
+  });
+});
+
 // PHP
 const php = {
   src           : dir.src + 'template/**/*.php',
@@ -65,12 +78,12 @@ var css = {
       browsers: ['last 2 versions', '> 2%']
     }),
     require('css-mqpacker'),
-    require('cssnano'),
-    
+    require('cssnano'), 
   ]
 };
 
 gulp.task('css', ['images'], () => {
+  browserSync.reload();
   return gulp.src(css.src)
     .pipe(plumber())
     .pipe(sass(css.sassOpts))      
@@ -98,7 +111,7 @@ gulp.task('js', () => {
     }))
     .pipe(deporder())
     .pipe(concat(js.filename))
-    //.pipe(stripdebug())
+    .pipe(stripdebug())
     .pipe(uglify())    
     .pipe(gulp.dest(js.build));
 });
@@ -107,11 +120,14 @@ gulp.task('js', () => {
 gulp.task('build', ['php', 'css', 'js']);
 
 // watch for file changes
-gulp.task('watch', () => {  
+gulp.task('watch', ['browser-sync'], () => {  
   gulp.watch(php.src, ['php']);       // page changes
   gulp.watch(images.src, ['images']); // image changes 
   gulp.watch(css.watch, ['css']);     // CSS changes
   gulp.watch(js.srcFull, ['js']);     // JavaScript main changes
+  // Browser Sync
+  gulp.watch(dir.src + 'js/**/*').on('change', browserSync.reload);
+  gulp.watch(dir.src + 'template/**/*').on('change', browserSync.reload);
 });
 
 // default task

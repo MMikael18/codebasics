@@ -54,12 +54,9 @@
   <?php //echo get_bloginfo( 'name' ); ?>
   <?php //get_template_part( 'template-parts/sos', 'links' ); ?>
   <sos-links></sos-links>
-  <div class="l-orage_box">
-    <span class="c-blog_title">ReCapNotes.com</span>    
-  </div>
-  <header class="c-hero-camere" >
-    
+  
+  <header class="l-header" >
+    <recal-logo></recal-logo>
   </header>
   
- 
   <main>    

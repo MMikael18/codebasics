@@ -179,10 +179,10 @@ new reCaptcha_Options_Page;
 
 
 
-function theme_add_editor_styles() {
-    add_editor_style( 'editor.css' );
-}
-add_action( 'admin_init', 'theme_add_editor_styles' );
+// function theme_add_editor_styles() {
+//     add_editor_style( 'editor.css' );
+// }
+// add_action( 'admin_init', 'theme_add_editor_styles' );
 
 
 

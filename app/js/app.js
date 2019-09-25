@@ -1,9 +1,11 @@
 // Web Components
 import { web } from './web-component/webcomponents/webcomponents-bundle';
+//import TweenMax from "gsap/TweenMax";
+import { racep } from './web-component/recap-logo';
 import { sos } from './web-component/sos-links';
 //import * as $ from './jquery.min';
-import $ from './jquery.min';
-import jQuery from './jquery.min';
+//import $ from './jquery.min';
+//import jQuery from './jquery.min';
 
 const hello = (name) => {
     return `hello more ${name}`;
@@ -17,6 +19,6 @@ const hello = (name) => {
 //     });
 // });
 
-jQuery( document ).ready(function( $ ) {
-    alert("jaska");
-});
+//jQuery( document ).ready(function( $ ) {
+    //alert("jaska");
+//});

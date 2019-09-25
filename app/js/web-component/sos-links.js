@@ -72,9 +72,9 @@ class SosLinks extends HTMLElement {
     //button.addEventListener("click", this.handleClick);
   }
   
-  handleClick(e) {
-    alert("Sup?");
-  }
+  // handleClick(e) {
+  //   alert("Sup?");
+  // }
   
 }
 
