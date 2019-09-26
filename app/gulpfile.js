@@ -109,10 +109,10 @@ gulp.task('js', () => {
       insertGlobals : true,
       debug : !gutil.env.production
     }))
-    .pipe(deporder())
+    // .pipe(deporder())
     .pipe(concat(js.filename))
-    .pipe(stripdebug())
-    .pipe(uglify())    
+    // .pipe(stripdebug())
+    // .pipe(uglify())
     .pipe(gulp.dest(js.build));
 });
 

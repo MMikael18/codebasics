@@ -2,13 +2,7 @@ const sos_template = document.createElement('template');
 
 sos_template.innerHTML = `
 <style>
-  .c-socialmedia-links {
-    position: absolute;
-    left: 75vw;
-    top: 21px;
-    padding: 5px;
-    z-index: 10;    
-  }
+  .c-socialmedia-links {}
   ul {
     margin: 0;
     padding: 0;
@@ -18,6 +12,22 @@ sos_template.innerHTML = `
   li {
     padding: 5px;
   }
+  li:first-child
+  {
+    padding-left: 0px;
+  }
+  li:last-child
+  { 
+    padding-right: 0px;
+  }
+  li:first-child a
+  {
+    padding-left: 0px;
+  }
+  li:last-child a
+  { 
+    padding-right: 0px;
+  }  
   a {
     padding: 5px;
     display: block;

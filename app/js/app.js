@@ -1,7 +1,8 @@
 // Web Components
 import { web } from './web-component/webcomponents/webcomponents-bundle';
-//import TweenMax from "gsap/TweenMax";
-import { racep } from './web-component/recap-logo';
+import TweenMax from "gsap/TweenMax";
+import { recap } from './web-component/recap-logo';
+import { navmenu } from './web-component/nav-menu';
 import { sos } from './web-component/sos-links';
 //import * as $ from './jquery.min';
 //import $ from './jquery.min';

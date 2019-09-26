@@ -53,10 +53,18 @@
   <?php //get_template_part( 'template-parts/nav', 'main' ); ?>
   <?php //echo get_bloginfo( 'name' ); ?>
   <?php //get_template_part( 'template-parts/sos', 'links' ); ?>
-  <sos-links></sos-links>
+  
   
   <header class="l-header" >
-    <recal-logo></recal-logo>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">		
+          <recap-logo class="c-recap-logo"></recap-logo>
+          <sos-links class="c-sos-links"></sos-links>
+          <nav-menu class="c-nav-menu"></nav-menu>	
+        </div>
+      </div>      
+    </div>
   </header>
   
-  <main>    
+  <main>
