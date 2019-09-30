@@ -5,8 +5,9 @@ recap_template.innerHTML = `
 .c-socialmedia-links{}
 .st0{fill:#FFFFFF;}
 .st1{fill:#F7642F;} 
+svg {overflow: visible!important;}
 </style>
-<div part="logo">
+<div part="logo" id="recaplogo">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 735 195" style="enable-background:new 0 0 735 195;" xml:space="preserve">
 <g>
@@ -66,21 +67,25 @@ class Recap extends HTMLElement {
   constructor() {
     super()
     this.attachShadow({mode: 'open'})
-    this.shadowRoot.appendChild(recap_template.content.cloneNode(true))
-    
+	this.shadowRoot.appendChild(recap_template.content.cloneNode(true))
+	this.appendChild(recap_template.content.cloneNode(true))
+	
+	let logo = this.shadowRoot
+
     CSSPlugin.useSVGTransformAttr = true;
     
     let tl = new TimelineMax({
-      repeat: 0,
-      repeatDelay: 0.65,
-      yoyo: true
+		delay: 0,
+		repeat: 0,
+		repeatDelay: 0.65,
+		yoyo: true
     }),
-    paths = this.shadowRoot.querySelectorAll("path"),
+    paths = logo.querySelectorAll("path"),
     stagger_val = 0.0125,
-    duration = 0.75
+    duration = 0.5
 
     tl.timeScale(0.1)
-    
+
     paths.forEach((path) => {
       tl.set(path, {
         x: '+=' + getRandom(-500, 500),
@@ -90,7 +95,7 @@ class Recap extends HTMLElement {
         opacity: 0
       })
     })
-    
+
     let stagger_opts_to = {
       x: 0,
       y: 0,

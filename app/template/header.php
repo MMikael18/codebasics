@@ -10,7 +10,7 @@
     <?php wp_head();?>
     <?php
       global $post;
-
+ 
       $twitter_url    = get_permalink();
       $twitter_title  = get_the_title();
       $twitter_desc = $post->post_excerpt;
@@ -20,7 +20,7 @@
         $twitter_desc = wp_trim_excerpt(trim(preg_replace('!\s+!', ' ', $twitter_desc)));
       }
 
-      $twitter_thumbs = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), full );
+      $twitter_thumbs = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), "full" );
       $twitter_thumb  = $twitter_thumbs[0];   
 
       if(!$twitter_thumb) {        

@@ -1,7 +1,6 @@
 <?php
 
-
-
+/*
 class Type_Settigns {
     public static $text_domain = 'simularpages_domain';
     
@@ -17,7 +16,6 @@ class SimularPages_Post_Type {
         add_action( 'init', array( $this , 'create_custom_post')  );
         add_action( 'add_meta_boxes', array( $this , 'custom_meta_boxs' ) );
         add_action( 'save_post', array( $this , 'save_your_fields_meta' ) );
-        
     }
 
     function create_custom_post() {
@@ -75,10 +73,10 @@ class SimularPages_Post_Type {
 
     function field_form_callback() {
     
-        /* nonce */
+        // nonce 
         wp_nonce_field( basename(__FILE__) , 'simularpages_meta_box_nonce' );
     
-        /* fields */
+        // fields 
         global $post;
         $meta = get_post_meta( $post->ID, 'your_fields', true );
 

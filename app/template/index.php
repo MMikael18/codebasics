@@ -3,15 +3,33 @@
 Template Name: Home page
 Template Post Type: post, page, event
 */
-// Page code here...
 ?>
 <?php get_header(); ?>
+
+<?php
+ foreach((get_terms(
+	[ 'taxonomy'=> 'category']
+	)) as $category)
+{
+	CodeBasics::get_component_posts_rollup($category->slug, $category->name);
+}
+
+
+if ( have_posts() ) {
+	// Load posts loop.
+	while ( have_posts() ) {
+		the_post();
+		get_template_part( 'template-parts/content/content' );
+	}
+}
+?>
 
 <section class="botter">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">		
 				<?php 
+/*				
 				    if(is_single() || is_page()) :
 
 						if ( have_posts() ) : 
@@ -27,7 +45,6 @@ Template Post Type: post, page, event
 
 						global $paged;
 						
-						/* secondary query using WP_Query */
 						$args = array(
 							'cat' => $cat,
 							'tag' => $tag,
@@ -36,7 +53,6 @@ Template Post Type: post, page, event
 						);
 						$post_query = new WP_Query( $args );
 
-						/* loop */
 						ob_start();    
 						echo "<div class='post-cards'>";
 						while( $post_query->have_posts() ) : 
@@ -47,17 +63,7 @@ Template Post Type: post, page, event
 
 					endif;
 
-					if ($post_query->max_num_pages > 1) :  ?>
-					<nav class="prev-next-posts">
-						<div class="prev-posts-link">
-						<?php echo get_next_posts_link( 'Older Entries', $post_query->max_num_pages ); // display older posts link ?>
-						</div>
-						<div class="next-posts-link">
-						<?php echo get_previous_posts_link( 'Newer Entries' ); // display newer posts link ?>
-						</div>
-					</nav>
-					<?php 
-					endif; 
+*/
 					?>
 			</div> <!-- /.col -->
 		</div> <!-- /.row -->
