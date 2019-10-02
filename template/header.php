@@ -54,6 +54,9 @@
   <?php //echo get_bloginfo( 'name' ); ?>
   <?php //get_template_part( 'template-parts/sos', 'links' ); ?>
   
+  <?php 
+  if(!is_single( )) :
+  ?>
   
   <header class="l-header" >
     <div class="container">
@@ -67,4 +70,8 @@
     </div>
   </header>
   
+  <?php 
+  endif;
+  ?>
+
   <main>

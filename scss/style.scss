@@ -13,8 +13,10 @@ $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
 
-@import '../scss/main/variables';
-@import '../scss/postwall';
+@import '../scss/inc/variables';
+@import '../scss/inc/postwall';
+@import '../scss/inc/single';
+@import '../scss/inc/comments';
 @import '../node_modules/bootstrap/scss/bootstrap';
 //@import '../scss/main/navigation';
 //@import '../scss/main/post_lister';

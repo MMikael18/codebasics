@@ -10,7 +10,8 @@ class CodeBasics {
         //
         add_action( 'wp_enqueue_scripts', [$this, 'enqueue_script'] );
         // 
-        add_action( 'admin_init', [$this,'add_editor_styles'] );
+        add_action( 'admin_init',         [$this, 'add_editor_styles'] );
+        add_filter( 'excerpt_length',     [$this, 'wpdocs_custom_excerpt_length'], 999 );
     }
 
     /*
@@ -31,18 +32,22 @@ class CodeBasics {
     *
     */
 
-
     function add_editor_styles() {
         add_editor_style( 'editor.css' );
     }
 
-    
+    /*
+    *
+    * Change lenght of excerpt
+    *
+    */
 
+    function wpdocs_custom_excerpt_length( $length ) {
+        return 25;
+    }
 
-    
 }
-
-new CodeBasics();
+$codebasics = new CodeBasics();
 
 
 class PostWall {
@@ -101,13 +106,13 @@ class PostWall {
 *
 */
 
-function colum_shortcode( $atts, $content = null ) {
-	$a = shortcode_atts( array(
-        'num' => '1',
-    ), $atts );
-    $grid = "col-sm-".$a['num'];
-    return "<div class='$grid'>".do_shortcode($content)."</div>";
-}
+// function colum_shortcode( $atts, $content = null ) {
+// 	$a = shortcode_atts( array(
+//         'num' => '1',
+//     ), $atts );
+//     $grid = "col-sm-".$a['num'];
+//     return "<div class='$grid'>".do_shortcode($content)."</div>";
+// }
 
 
 

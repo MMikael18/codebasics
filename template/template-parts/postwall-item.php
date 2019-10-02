@@ -29,12 +29,12 @@
 $url = get_permalink();
 $date = get_the_date();
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class("c-postwall-list__item"); ?>>	
+<article id="post-<?php the_ID(); ?>" <?php post_class("c-postwall-list__item"); ?> data-loadarticle="<?php the_ID(); ?>">	
     <?php PostWall::get_tags() ?>
-    <a href="<?php the_permalink() ?>">
+    <!--a href="<?php the_permalink() ?>"-->
         <h3><?php the_title(); ?></h3>
         <?php the_excerpt(); ?>
-    </a>
+    <!--/a-->
 </article>
 <?php
 

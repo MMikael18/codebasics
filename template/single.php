@@ -1,11 +1,6 @@
 <?php get_header(); ?>
-<?php //php_file(); ?>
 
-<section class="upper"></section>
-
-<?php //get_template_part( 'template-parts/nav', 'main' ); ?>
-
-<section class="botter">
+<article id="post-<?php the_ID(); ?>" <?php post_class("l-single"); ?>>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
@@ -22,4 +17,4 @@
 	</div>
 </section>
 
-<?php get_footer(); ?>
+<?php get_footer(); ?> 

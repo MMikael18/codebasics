@@ -22,7 +22,8 @@ uglify        = require('gulp-uglify-es').default,
 babel         = require('gulp-babel'),
 browserify    = require('gulp-browserify'),
 plumber       = require('gulp-plumber'),
-browserSync   = require('browser-sync').create();
+browserSync   = require('browser-sync').create(),
+gulpif        = require('gulp-if');
 
 // Browser Sync
 gulp.task('browser-sync', () => {
@@ -94,8 +95,8 @@ gulp.task('css', ['images'], () => {
 
 // JavaScript
 const js = {
-  src         : dir.src + 'js/app.js',
-  srcFull     : dir.src + 'js/**/*', // 
+  src         : dir.src + 'js/*.js',
+  srcLoad    : dir.src + 'js/**/*', // 
   build       : dir.build + 'js/',
   filename    : 'scripts.js'
 };
@@ -109,22 +110,25 @@ gulp.task('js', () => {
       insertGlobals : true,
       debug : !gutil.env.production
     }))
-    // .pipe(deporder())
-    .pipe(concat(js.filename))
-    // .pipe(stripdebug())
-    // .pipe(uglify())
+    .pipe(gulpif(build,deporder()))
+    // .pipe(concat(js.filename))
+    .pipe(gulpif(build,stripdebug()))
+    .pipe(gulpif(build,uglify()))
     .pipe(gulp.dest(js.build));
 });
 
+
+var build = true;
 // run all tasks
 gulp.task('build', ['php', 'css', 'js']);
-
+ 
 // watch for file changes
 gulp.task('watch', ['browser-sync'], () => {  
+  build = false;
   gulp.watch(php.src, ['php']);       // page changes
   gulp.watch(images.src, ['images']); // image changes 
   gulp.watch(css.watch, ['css']);     // CSS changes
-  gulp.watch(js.srcFull, ['js']);     // JavaScript main changes
+  gulp.watch(js.src, ['js']);         // JavaScript main changes
   // Browser Sync
   gulp.watch(dir.src + 'js/**/*').on('change', browserSync.reload);
   gulp.watch(dir.src + 'template/**/*').on('change', browserSync.reload);
