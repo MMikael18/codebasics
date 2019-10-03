@@ -1,5 +1,14 @@
 <?php
 
+class Theme_settings {
+    public static $textdomain = 'recapnotes';
+    
+    // public static $category = 'simular_category';
+    // public static $tags     = 'simular_tags';
+    // public static $postname = 'simularpages';
+}
+
+
 /*
 * 
 * Theme customizer setting

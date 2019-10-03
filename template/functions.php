@@ -1,8 +1,8 @@
 <?php
 //require_once  get_template_directory() . '/inc/devtools.php';
-require_once  get_template_directory() . '/inc/theme-settings.php';
-require_once  get_template_directory() . '/inc/recaptcha-options-page.php';
-
+require_once  get_template_directory() . '/lib/theme-settings.php';
+//require_once  get_template_directory() . '/lib/recaptcha-options-page.php';
+require_once  get_template_directory() . '/lib/post_wall.php';
 
 class CodeBasics {
 
@@ -12,6 +12,7 @@ class CodeBasics {
         // 
         add_action( 'admin_init',         [$this, 'add_editor_styles'] );
         add_filter( 'excerpt_length',     [$this, 'wpdocs_custom_excerpt_length'], 999 );
+        add_filter('comment_form_default_fields', [$this, 'remove_fields_from_comment_form'] );
     }
 
     /*
@@ -21,16 +22,16 @@ class CodeBasics {
     */
 
     function enqueue_script() {        
-        wp_enqueue_script('codejs', get_template_directory_uri() . '/js/scripts.js', '', '1', true );
-        wp_enqueue_style ('blog', get_template_directory_uri() . '/style.css' );
+        wp_enqueue_script('codejs', get_template_directory_uri() . '/js/scripts.js', '', '1.0', true );
+        wp_enqueue_style ('blog', get_template_directory_uri() . '/style.css', array(), '1.0' );
         //wp_enqueue_style('Quicksand', '//fonts.googleapis.com/css?family=Quicksand:300,400,500,700', false );
     }
-
+ 
     /*
-    *
+    * 
     * Admin inits
     *
-    */
+    */  
 
     function add_editor_styles() {
         add_editor_style( 'editor.css' );
@@ -46,59 +47,21 @@ class CodeBasics {
         return 25;
     }
 
-}
-$codebasics = new CodeBasics();
-
-
-class PostWall {
     /*
     *
-    * Static funtions
+    * remove email to comments
     *
     */
 
-    public static function get_tags() {
-		$tags = get_the_tags();
-		$separator = ' ';
-		$output = '';
-		if ( ! empty( $tags ) ) {
-			foreach( $tags as $t ) {
-				$output .= '<span class=""><a href="' . esc_url( get_category_link( $t->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $t->name ) ) . '">' . esc_html( $t->name ) . '</a></span>' . $separator;
-			}
-			return trim( $output, $separator );
-		}
-		return "";
-	}
-
-    static function get_component_posts_rollup($category = "", $title = "all")
-    {
-        global $paged;
-						
-        $args = array(
-            'category_name' => $category,            
-            'posts_per_page' => 999,
-        );
-        $post_query = new WP_Query( $args );
-
-        ob_start();
-        ?>
-        <h2><?php echo $title; ?></h2>
-        <div class='c-postwall-list'>            
-            <?php
-            while( $post_query->have_posts() ) : 
-                    $post_query->the_post();            						
-                    get_template_part( 'template-parts/postwall-item', '' );
-            endwhile;
-            wp_reset_postdata();
-            ?>
-        </div>
-        <?php
-        
+    function remove_fields_from_comment_form($fields) {
+        if(isset($fields['email'])) unset($fields['email']);
+        if(isset($fields['url'])) unset($fields['url']);
+        return $fields;
     }
+    
+
 }
-//new PostWall();
-
-
+$codebasics = new CodeBasics();
 
 /*
 *

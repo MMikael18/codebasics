@@ -84,13 +84,13 @@ var css = {
 };
 
 gulp.task('css', ['images'], () => {
-  browserSync.reload();
   return gulp.src(css.src)
     .pipe(plumber())
     .pipe(sass(css.sassOpts))      
     .pipe(postcss(css.processors))    
     //.pipe(concat('style.css'))
-    .pipe(gulp.dest(css.build));
+    .pipe(gulp.dest(css.build))
+    .pipe(browserSync.stream());
 });
 
 // JavaScript

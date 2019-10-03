@@ -1,5 +1,8 @@
-
-
+.c-postwall-title
+{
+  color: white;
+  margin-left: 50px;
+}
 
 .c-postwall-list
 {
@@ -7,38 +10,42 @@
     flex-direction: row;
     max-width: 100vw;
     overflow: hidden;
+    margin-left: 50px;
 }
-
+ 
 .c-postwall-list__item
 {
-    border: 1px #ccc solid;
-    padding: 15px;  
-    cursor: pointer;  
-    //display: flex;
-    a
-    {
-      display: block;
-      color: #444;
-      
-    }
+  display: flex;  
+  padding: 15px;  
+  margin-right: 15px;
+  margin-bottom: 15px;
+  background-color: white;
+  cursor: pointer;  
+
+  a 
+  {
+    display: block;
+    color: #444;      
     &:hover
     {
       text-decoration: none;
-    }
+    }     
+  }
+  
 }
 
 @media ( max-width: $breakpoint-sm ) {
-  .c-postwall-list__item { min-width: calc( 100vw / 1 ); max-width: calc( 100vw / 1 ); }
+  .c-postwall-list__item { min-width: calc( (100% - (15px * 1.1)) / 1.1 ); max-width: calc( (100% - (15px * 1.1)) / 1.1 ); }
 }
 @media ( min-width: $breakpoint-sm ) {
-  .c-postwall-list__item { min-width: calc( 100vw / 2 ); max-width: calc( 100vw / 2 ); }
+  .c-postwall-list__item { min-width: calc( (100% - (15px * 2.1)) / 2.1 ); max-width: calc( (100% - (15px * 2.1)) / 2.1 ); }
 }
 @media ( min-width: $breakpoint-md ) {
-  .c-postwall-list__item { min-width: calc( 100vw / 2 ); max-width: calc( 100vw / 2 ); }
+  .c-postwall-list__item { min-width: calc( (100% - (15px * 2.1)) / 2.1 ); max-width: calc( (100% - (15px * 2.1)) / 2.1 ); }
 }
 @media ( min-width: $breakpoint-lg ) {
-  .c-postwall-list__item { min-width: calc( 100vw / 3 ); max-width: calc( 100vw / 3 ); }
+  .c-postwall-list__item { min-width: calc( (100% - (15px * 2.1)) / 2.1 ); max-width: calc( (100% - (15px * 2.1)) / 2.1 ); }
 }
 @media ( min-width: $breakpoint-xl ) {
-  .c-postwall-list__item { min-width: calc( 100vw / 4 ); max-width: calc( 100vw / 4 ); }
+  .c-postwall-list__item { min-width: calc( (100% - (15px * 4.1)) / 4.1 ); max-width: calc( (100% - (15px * 4.1)) / 4.1 ); }
 }

@@ -31,6 +31,19 @@
 }
 
 $blue-dark:  #1d1e26; 
+$orange:  #f7642f; 
+$orange-hover:  #cf4615; 
+
+@mixin button_main {
+  background-color: $orange;
+  color: white;
+  padding: 5px 15px;
+  transition: all .25s;
+  border-width: 0;
+  &:hover{
+    background: $orange-hover;
+  }
+}
 
 // $orange-color: #f4622e;
 // $blue-dark:  #1e2d3f;

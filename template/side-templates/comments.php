@@ -25,5 +25,6 @@ if ( post_password_required() ) {
 			<?php _e( 'Comments are closed.' ); ?>
 		</p>
 	<?php endif; ?>
-	<?php comment_form(); ?>
+	<?php 
+	comment_form(); ?>
 </div>

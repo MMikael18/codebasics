@@ -1,6 +1,5 @@
 <article class="post-page">
-	<a href="/" id="home-link">Home</a>
-	
+	<a href="/" class="c-home-link"><?php _e("Home", Theme_settings::$textdomain ); ?></a>	
 	<?php if(!is_page()) : ?>
 		<h2 class="post-title"><?php the_title(); ?></h2>	
 	<?php endif; ?>
