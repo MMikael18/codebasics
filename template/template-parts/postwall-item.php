@@ -26,16 +26,23 @@
 //         <a href=$url></a>
 //     </article>";
 
-$url = get_permalink();
-$date = get_the_date();
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class("c-postwall-list__item"); ?> data-loadarticle="<?php the_ID(); ?>">	
-    <span><?php PostWall::get_tags() ?></span>
+<article id="post-<?php the_ID(); ?>" <?php post_class("c-postwall-list__item"); ?> data-loadarticle="<?php the_ID(); ?>">	    
     <a href="<?php the_permalink() ?>">
-        <h3><?php the_title(); ?></h3>
-        <?php the_excerpt(); ?>
-    </a>
-</article>
+        <div class="c-postwall-list__item_top_coll">
+            <small><?php echo get_the_date() ?></small>
+            <h3><?php the_title(); ?></h3>
+            <?php the_excerpt(); ?>
+        </div>
+        <div class="c-postwall-list__item_bottom_coll">
+            <small><?php PostWall::the_tags_inpost(" / ") ?></small>
+            <div class="c-postwall-list__comment-numper">        
+                <?php echo '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 11c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5zm5 0c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5zm5 0c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5zm5-8v13h-11.643l-4.357 3.105v-3.105h-4v-13h20zm2-2h-24v16.981h4v5.019l7-5.019h13v-16.981z"/></svg>'; ?>
+            <div><?php echo get_comments_number(); ?></div>
+            </div>
+        </div>
+    </a>    
+</article> 
 <?php
-
+//the_excerpt(); 
 ?> 

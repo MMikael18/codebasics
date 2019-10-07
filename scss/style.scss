@@ -10,8 +10,8 @@ Tags: bootstrap, mmikael
 $breakpoint-xs: 0;
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
-$breakpoint-lg: 992px;
-$breakpoint-xl: 1200px;
+$breakpoint-lg: 1240px;
+$breakpoint-xl: 1640px;
 
 @import '../scss/inc/variables';
 @import '../scss/inc/postwall';
@@ -23,14 +23,14 @@ $breakpoint-xl: 1200px;
 //@import '../scss/main/post_lister';
 
 .container{
-  //background-color: var(--warning);
+  max-width: 90vw!important;
 }
 
-@media ( min-width: $breakpoint-xl ) {
-  .container{
-    max-width: 90vw;
-  }
-}
+// @media ( min-width: $breakpoint-lg ) {
+//   .container{
+//     max-width: 90vw;
+//   }
+// }
 
 /*
 *
@@ -59,6 +59,13 @@ h1, h2, h3, h4, h5, h6
 {
   font-weight: 900;
 }
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem;}
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 1rem; }
 
 /*
 *
