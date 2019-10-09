@@ -13,6 +13,20 @@
   {
 
   }
+  div.c-wall-controls
+  {
+    display: flex;
+    > div
+    {
+      width: 30px;
+      height: 30px;
+      margin-left: 5px;
+      background-color: $orange;
+      &:hover{
+        background-color: $orange-hover;
+      }
+    }
+  }
 }
  
 .c-postwall-list

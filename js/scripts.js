@@ -1,17 +1,20 @@
 // Web Components
-import { web } from './web-component/webcomponents-bundle';
-import TweenMax from "gsap/TweenMax";
-import { recap } from './web-component/recap-logo';
-import { navmenu } from './web-component/nav-menu';
-import { sos } from './web-component/sos-links';
+
+import TweenMax     from "gsap/TweenMax";
+import { web }      from './web-component/webcomponents-bundle';
+import { recap }    from  './web-component/recap-logo';
+import { navmenu }  from './web-component/nav-menu';
+import { sos }      from './web-component/sos-links';
+
+import { postwall } from './js/post-wall';
 
 //import * as $ from './jquery.min';
 //import $ from './jquery.min';
 //import jQuery from './jquery.min';
- 
-const hello = (name) => {
-    return `hello more ${name}`; 
-};
+
+// const hello = (name) => {
+//     return `hello more ${name}`; 
+// };
 
 // /* open the post header top to the page */
 // $( document ).ready(function() {

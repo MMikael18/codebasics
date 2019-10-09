@@ -6,6 +6,7 @@ class PostWall {
     * Static funtions
     *
     */
+    private static $target_index = 0;
 
     public static function get_tags() {
 		$tags = get_the_tags();
@@ -29,14 +30,18 @@ class PostWall {
             'posts_per_page' => 999,
         );
         $post_query = new WP_Query( $args );
+        PostWall::$target_index += 1;
 
-        //ob_start();
         ?>
         <div class="c-postwall-title">
             <h2 ><?php echo $title; ?></h2>
             <div><?php PostWall::the_used_tags($category); ?></div>
+            <div class="c-wall-controls" data-wall-controls="target_<?php echo PostWall::$target_index; ?>">
+                <div class="c-bt_previous"></div>
+                <div class="c-bt_next"></div>
+            </div>
         </div>
-        <div class='c-postwall-list'>            
+        <div class='c-postwall-list' data-wall="target_<?php echo PostWall::$target_index; ?>">
             <?php
             while( $post_query->have_posts() ) : 
                     $post_query->the_post();            						

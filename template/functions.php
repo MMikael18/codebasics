@@ -21,9 +21,10 @@ class CodeBasics {
     *
     */
 
-    function enqueue_script() {        
-        wp_enqueue_script('codejs', get_template_directory_uri() . '/js/scripts.js', '', '1.0', true );
-        wp_enqueue_style ('blog', get_template_directory_uri() . '/style.css', array(), '1.0' );
+    function enqueue_script() {     
+        $numper = rand();   
+        wp_enqueue_script('codejs', get_template_directory_uri() . '/js/scripts.js', '', $numper, true );
+        wp_enqueue_style ('blog', get_template_directory_uri() . '/style.css', array(), $numper );
         //wp_enqueue_style('Quicksand', '//fonts.googleapis.com/css?family=Quicksand:300,400,500,700', false );
     }
  

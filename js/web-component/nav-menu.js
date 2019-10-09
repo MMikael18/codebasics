@@ -31,45 +31,6 @@ class NavMenu extends HTMLElement {
     super()
     this.attachShadow({mode: 'open'})
     this.shadowRoot.appendChild(template.content.cloneNode(true))
-     
-    // CSSPlugin.useSVGTransformAttr = true;
-
-    // let tl = new TimelineMax({
-    //   repeat: 0,
-    //   repeatDelay: 0.65,
-    //   yoyo: true
-    // }),
-    // paths = this.shadowRoot.querySelectorAll("path"),
-    // stagger_val = 0.0125,
-    // duration = 0.75
-
-    // tl.timeScale(0.1)
-    
-    // paths.forEach((path) => {
-    //   tl.set(path, {
-    //     x: '+=' + getRandom(-500, 500),
-    //     y: '+=' + getRandom(-500, 500),
-    //     rotation: '+=' + getRandom(-720, 720),
-    //     scale: 0,
-    //     opacity: 0
-    //   })
-    // })
-    
-    // let stagger_opts_to = {
-    //   x: 0,
-    //   y: 0,
-    //   opacity: 1,
-    //   scale: 1,
-    //   rotation: 0,
-    //   ease: Power4.easeInOut
-    // }
-    
-    // tl.staggerTo(paths, duration, stagger_opts_to, stagger_val);
-
-    // function getRandom(min, max) {
-    //   return Math.random() * (max - min) + min
-    // }
-
   }
   
 }

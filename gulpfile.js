@@ -95,13 +95,14 @@ gulp.task('css', ['images'], () => {
 
 // JavaScript
 const js = {
-  src         : dir.src + 'js/*.js',
-  srcLoad    : dir.src + 'js/**/*', // 
+  src         : dir.src + 'js/**/*',
+  srcLoad     : dir.src + 'js/**/*',
   build       : dir.build + 'js/',
-  filename    : 'scripts.js'
+  files       : dir.src + 'js/scripts.js ', // + dir.src + 'js/admin.js'
+  //fileadmin   : 'admin.js'  
 };
 gulp.task('js', () => {
-    return gulp.src(js.src)
+    return gulp.src(js.files)
     .pipe(plumber())    
     .pipe(babel({
       presets: ['@babel/preset-env']
@@ -116,7 +117,6 @@ gulp.task('js', () => {
     .pipe(gulpif(build,uglify()))
     .pipe(gulp.dest(js.build));
 });
-
 
 var build = true;
 // run all tasks
