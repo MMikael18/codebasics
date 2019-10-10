@@ -42,13 +42,15 @@ class PostWall {
             </div>
         </div>
         <div class='c-postwall-list' data-wall="target_<?php echo PostWall::$target_index; ?>">
-            <?php
-            while( $post_query->have_posts() ) : 
-                    $post_query->the_post();            						
-                    get_template_part( 'template-parts/postwall-item', '' );
-            endwhile;
-            wp_reset_postdata();
-            ?>
+            <div class='c-scroller'>
+                <?php
+                while( $post_query->have_posts() ) : 
+                        $post_query->the_post();            						
+                        get_template_part( 'template-parts/postwall-item', '' );
+                endwhile;
+                wp_reset_postdata();
+                ?>
+            </div>
         </div>
         <?php
         

@@ -29,13 +29,20 @@
   }
 }
  
-.c-postwall-list
+.c-postwall-list 
 {
+  max-width: 100vw;
+  overflow: hidden;
+  /*margin-left: 50px;*/
+  .c-scroller  
+  {
+    padding-left: 50px;
+    position: relative;
     display: flex;
     flex-direction: row;
-    max-width: 100vw;
-    overflow: hidden;
-    margin-left: 50px;
+    left: 0;
+    transition: all .25s;
+  }
 }
  
 .c-postwall-list__item
