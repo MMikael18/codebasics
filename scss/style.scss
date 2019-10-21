@@ -63,7 +63,7 @@ h6 { font-size: 1rem; }
 
 /*
 *
-* Header lauout
+* Header layout
 *
 *
 */
@@ -75,6 +75,7 @@ header.l-header
   max-width:100%;
   height: 50vh;
   max-height: calc( 100vw / 16 * 9 );
+  min-height: 460px;
   .container{
     padding-top: 5vw;
     [class*="col"]{ padding: 0; }
@@ -84,6 +85,27 @@ header.l-header
   .l-header
   {
     max-height: calc( 100vh / 10 * 8 );
+  }
+}
+
+/*
+*
+* Footer layout
+*
+*
+*/
+
+footer.l-site-footer
+{
+  display: block;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  font-size: .75rem;
+  padding: 15px;
+  text-align: center;
+  p{
+    margin: 0;
   }
 }
 
@@ -110,7 +132,14 @@ header.l-header
 }
 .c-nav-menu
 {
-  position: absolute;
-  right: 0; top: 0;
-  width: 50px;
+  display: none;
+}
+
+
+.CodeMirror {
+  transition: 0s all ease-in!important;
+  border: solid 5px #263238;
+}
+.cm-s-material.CodeMirror {
+  background-color: #263238!important;
 }

@@ -34,11 +34,11 @@ class PostWall {
 
         ?>
         <div class="c-postwall-title">
-            <h2 ><?php echo $title; ?></h2>
+            <h2><?php echo $title; ?></h2>
             <div><?php PostWall::the_used_tags($category); ?></div>
             <div class="c-wall-controls" data-wall-controls="target_<?php echo PostWall::$target_index; ?>">
-                <div class="c-bt_previous"></div>
-                <div class="c-bt_next"></div>
+                <svg class="c-bt_previous" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 24c6.627 0 12-5.373 12-12s-5.373-12-12-12-12 5.373-12 12 5.373 12 12 12zm-1-17v4h8v2h-8v4l-6-5 6-5z"/></svg>
+                <svg class="c-bt_next" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 17v-4h-8v-2h8v-4l6 5-6 5z"/></svg>
             </div>
         </div>
         <div class='c-postwall-list' data-wall="target_<?php echo PostWall::$target_index; ?>">
