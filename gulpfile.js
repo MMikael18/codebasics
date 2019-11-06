@@ -18,7 +18,7 @@ deporder      = require('gulp-deporder'),
 concat        = require('gulp-concat'),
 stripdebug    = require('gulp-strip-debug'),
 uglify        = require('gulp-uglify-es').default,
-babel         = require('gulp-babel'),
+babelify      = require('babelify'),
 browserify    = require('gulp-browserify'),
 plumber       = require('gulp-plumber'),
 browserSync   = require('browser-sync').create(),
@@ -100,16 +100,18 @@ const js = {
   files       : dir.src + 'js/scripts.js ', // + dir.src + 'js/admin.js'
   //fileadmin   : 'admin.js'  
 };
-gulp.task('js', () => {
+gulp.task('js', () => { 
     return gulp.src(js.files)
-    .pipe(plumber())    
-    .pipe(babel({
-      presets: ['@babel/preset-env']
-    }))
+    .pipe(plumber())
+    //.pipe(babel())
     .pipe(browserify({
       insertGlobals : true,
-      debug : !gutil.env.production
+      debug : !gutil.env.production,
+      transform: [babelify.configure({
+        presets: ["@babel/preset-env", "@babel/preset-react"]
+      })]
     }))
+    //.transform("babelify", {presets: ["@babel/preset-env", "@babel/preset-react"]})
     .pipe(gulpif(build,deporder()))
     // .pipe(concat(js.filename))
     .pipe(gulpif(build,stripdebug()))

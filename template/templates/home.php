@@ -5,11 +5,17 @@ Template Post Type: post, page, event
 */
 get_header();  
 
-$cateries = get_terms(array('taxonomy'=> 'category') );
-foreach($cateries as $category)
-{
-	PostWall::get_component_posts_rollup($category->slug, $category->name);
-}
+?>
+<div id="post_wall_app"></div>
+<?php
+
+// PostWall::get_navigation();
+
+// $cateries = get_terms(array('taxonomy'=> 'category') );
+// foreach($cateries as $category)
+// {
+// 	PostWall::get_posts($category->slug, $category->name);
+//}
 
 get_footer(); 
 ?>

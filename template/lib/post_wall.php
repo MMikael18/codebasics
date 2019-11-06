@@ -1,28 +1,138 @@
+
 <?php
 
+// public static function get_tags() {
+// 	$tags = get_the_tags();
+// 	$separator = ' ';
+// 	$output = '';
+// 	if ( ! empty( $tags ) ) {
+// 		foreach( $tags as $t ) {
+// 			$output .= '<span class=""><a href="' . esc_url( get_category_link( $t->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $t->name ) ) . '">' . esc_html( $t->name ) . '</a></span>' . $separator;
+// 		}
+// 		return trim( $output, $separator );
+// 	}
+// 	return "";
+// }
+
 class PostWall {
+
+    function __construct() {
+        //add_action( 'wp_enqueue_scripts', [$this, 'my_enqueue'] );
+
+        // get_tags / action
+        add_action("wp_ajax_get_tags", [$this ,"get_tags_ajax"]);
+        add_action("wp_ajax_nopriv_get_tags", [$this ,"get_tags_ajax"]);
+
+        // get_tags / action
+        add_action("wp_ajax_get_categories", [$this ,"get_categories_ajax"]);
+        add_action("wp_ajax_nopriv_get_categories", [$this ,"get_categories_ajax"]);
+  
+        // get_posts / action
+        add_action("wp_ajax_get_posts", [$this ,"get_posts_ajax"]);
+        add_action("wp_ajax_nopriv_get_posts", [$this ,"get_posts_ajax"]);
+        
+        add_action('wp_head', function () {            
+            printf('<script type="text/javascript">window.custom_nonce = "%s";</script>', wp_create_nonce());
+        }); 
+    }
+
+    //add_action("wp_ajax_nopriv_my_user_vote", "my_must_login");
+
+    public function get_tags_ajax()
+    {
+        $category = json_decode(file_get_contents('php://input'), true)['category'];
+
+        $tags =  PostWall::get_tags_in_use($category); 
+        $models = [];
+        foreach ($tags as $tag_id) {
+            $models[] = array('slug' => get_tag($tag_id)->slug, 'name' => get_tag($tag_id)->name );
+        }
+        echo wp_send_json($models);
+        die;
+    }
+ 
+    public function get_categories_ajax(){
+        
+        $cateries = get_terms(array('taxonomy'=> 'category') );
+        $models = [];
+        foreach($cateries as $category)
+        {
+            $models[] = array('slug' => $category->slug, 'name' => $category->name);            
+        }
+        echo wp_send_json($models);
+        die;
+    }
+
+    public function get_posts_ajax(){
+        
+        $category = json_decode(file_get_contents('php://input'), true)['category'];
+        $tag      = json_decode(file_get_contents('php://input'), true)['tag'];
+        
+        global $paged;
+		
+        $args = array(
+            'category_name' => $category,
+            'tag' => $tag,
+            'posts_per_page' => 999,
+        );
+        $post_query = new WP_Query( $args );
+
+        $models = [];
+        while( $post_query->have_posts() ) : 
+                $post_query->the_post();            		
+                $models[] = array(
+                    'id' => get_the_ID(),
+                    'date' => get_the_date(),
+                    'url' => get_the_permalink(),
+                    'title' => get_the_title(),
+                    'comment_num' => get_comments_number(),
+                    'img' => get_the_post_thumbnail_url()
+                );
+        endwhile;
+        wp_reset_postdata();
+
+        echo wp_send_json($models);
+        die;        
+    }
+
     /*
     *
     * Static funtions
     *
     */
+    /*
     private static $target_index = 0;
+ 
+    public static function get_navigation()
+    {  
+        $cateries = get_terms(array('taxonomy'=> 'category') );
+        ?>
+        <div class="c-post-wall_navigation">
+            <div>
+                <?php
+                foreach($cateries as $category)
+                {
+                    ?>
+                    <span class="h3" data-category="" data-slug="<?php echo $category->slug ?>"><?php echo $category->name; ?></span>
+                    <?php
+                }
+                ?>
+            </div>
+            <div>
+                <?php
+                    //PostWall::get_tags_in_category();
+                ?>
+            </div>
+        </div>
+        <?php
+    }
+    */
 
-    public static function get_tags() {
-		$tags = get_the_tags();
-		$separator = ' ';
-		$output = '';
-		if ( ! empty( $tags ) ) {
-			foreach( $tags as $t ) {
-				$output .= '<span class=""><a href="' . esc_url( get_category_link( $t->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $t->name ) ) . '">' . esc_html( $t->name ) . '</a></span>' . $separator;
-			}
-			return trim( $output, $separator );
-		}
-		return "";
-	}
 
-    static function get_component_posts_rollup($category = "", $title = "all")
+
+    static function get_posts($category = "", $title = "all")
     {
+        /*
         global $paged;
 						
         $args = array(
@@ -52,40 +162,17 @@ class PostWall {
                 ?>
             </div>
         </div>
-        <?php
-        
+        <?php    
+        */
     }
 
-    public static function the_used_tags($category)
-    {
-        $tags =  PostWall::get_tags_in_use($category);
-        foreach ($tags as $tag_id) {
-            ?>
-            <span><?php echo get_tag($tag_id)->name; ?></span>
-            <?php
-        }
-    }
-    
-    // public static function get_tags_menu($category = "") 
-    // {
 
-	// 	$tags = get_tags( array(				
-	// 		'orderby'    => 'name',
-    //         'show_count' => true,
-    //         'hide_empty' => true
-	// 	));
-
-	// 	echo "<ul>";
-
-	// 	if ( ! empty( $tags ) ) {
-	// 		foreach( $tags as $tag ) {
-	// 			echo "<li><a href=" . esc_url( get_category_link( $tag->term_id ) ) . ">" . $tag->name . "</a></li>";
-	// 		}
-	// 	}
-	// 	echo "</ul>";
-    // }
     
     public static function get_tags_in_use ($category ) {
+
+        if(empty($category))
+            return  get_tags();
+
         // Set up the query for our posts
         $my_posts = new WP_Query(array(
           'category_name' => $category, // Your category id
@@ -139,5 +226,6 @@ class PostWall {
 		}
 	}
 }
+$PostWall = new PostWall();
 
 ?>
